@@ -107,9 +107,11 @@ body {
     margin: 0;
 }
 .navbar {
+    margin-left: 4em;
     width: 40em;
     color: var(--white);
     display: flex;
+    flex-direction: column;
     background-color: var(--darkgrey);
     margin-right: 5em;
 }
