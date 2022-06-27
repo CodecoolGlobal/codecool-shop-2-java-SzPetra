@@ -17,7 +17,14 @@ public class Cart {
     }
 
     public void addProduct(Product product){
-
+        LineItem newLineItem = new LineItem(product);
+        for(LineItem item: products){
+            if(item.equals(newLineItem)){
+                item.setQuantity(item.getQuantity()+1);
+                return;
+            }
+        }
+        products.add(newLineItem);
     }
 
     public void removeProduct(Product product){
