@@ -1,5 +1,7 @@
 package com.codecool.shop.model;
 
+import com.google.gson.Gson;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -52,5 +54,10 @@ public class LineItem {
     @Override
     public int hashCode() {
         return Objects.hash(productId);
+    }
+
+    public String convertToJson(){
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }
