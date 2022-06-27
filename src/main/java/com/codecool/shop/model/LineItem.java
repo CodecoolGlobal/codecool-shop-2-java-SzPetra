@@ -1,6 +1,7 @@
 package com.codecool.shop.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class LineItem {
 
@@ -38,5 +39,18 @@ public class LineItem {
 
     public boolean compareToProduct(Product product){
         return productId == product.getId();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LineItem lineItem = (LineItem) o;
+        return productId == lineItem.productId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productId);
     }
 }
