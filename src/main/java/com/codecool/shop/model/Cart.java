@@ -1,5 +1,8 @@
 package com.codecool.shop.model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -50,4 +53,8 @@ public class Cart {
 
     }
 
+    public String convertProductsToJson() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(products);
+    }
 }
