@@ -105,7 +105,18 @@
 }
 .products {
     width: available;
-
+}
+#footer {
+    background-color: var(--darkgrey);
+    color: var(--white);
+    text-align: center;
+    line-height: 20%;
+    font-size: 20px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 26%;
+    height: 43px;
 }
 .profile-picture > img {
     width: 7em;
