@@ -77,8 +77,30 @@
     width: 7em;
 }
 .page-header {
-    background-color: #161616;
+    background-color: var(--darkgrey);
     display: flex;
     flex-direction: row;
     color: white;
+}
+.container {
+    background-color: var(--darkgrey);
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+.navbar {
+    width: 40em;
+    color: var(--white);
+    display: flex;
+    background-color: var(--lightgrey);
+    margin-right: 5em;
+}
+.navbar-element {
+    margin: 2em;
+}
+.products {
+    width: available;
+
+}
+. footer {
 }

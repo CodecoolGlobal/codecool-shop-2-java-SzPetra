@@ -33,9 +33,20 @@
 <div th:replace="header.html :: copy"></div>
 
 <div class="container">
-    <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+    <!--Navigation bar at the side-->
+    <div class="card navbar">
+
+        <div class="personal-info navbar-element">personal info</div>
+        <div class="category navbar-element">Categories</div>
+        <div class="supplier navbar-element">Supplier</div>
+
+
     </div>
+
+    <!--categories-->
+    <!--div class="card">
+        <strong th:text="${category.name}">Category Title</strong>
+    </div-->
 
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
@@ -59,7 +70,7 @@
 
 </div>
 
-<div th:replace="footer.html :: copy"></div>
+<div class="footer" th:replace="footer.html :: copy"></div>
 
 </body>
 </html>
