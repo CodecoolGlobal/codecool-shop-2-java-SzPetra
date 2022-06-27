@@ -35,4 +35,8 @@ public class LineItem {
     public BigDecimal getTotalPrice(){
         return unitPrice.multiply(BigDecimal.valueOf(quantity));
     }
+
+    public boolean compareToProduct(Product product){
+        return productId == product.getId();
+    }
 }
