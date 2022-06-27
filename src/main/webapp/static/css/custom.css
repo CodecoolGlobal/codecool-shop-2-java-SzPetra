@@ -11,6 +11,7 @@
     --darkred: #4e202d;
 }
 
+
 .glyphicon {
     margin-right:5px;
 }
@@ -92,14 +93,24 @@
     width: 40em;
     color: var(--white);
     display: flex;
-    background-color: var(--lightgrey);
+    background-color: var(--darkgrey);
     margin-right: 5em;
 }
 .navbar-element {
-    margin: 2em;
+    background-color: var(--lightgrey);
+    margin: 1em;
+    padding: 2em;
+    width: 20em;
+    margin-right: 5em;
 }
 .products {
     width: available;
+
+}
+.profile-picture > img {
+    width: 7em;
+    border-radius: 0.7em;
+    margin-bottom: 1em;
 
 }
 . footer {
