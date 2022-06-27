@@ -116,11 +116,11 @@ body {
     margin-right: 5em;
 }
 .navbar-element {
-    background-color: var(--lightgrey);
     margin: 1em;
     padding: 2em;
     width: 20em;
     margin-right: 5em;
+    border-bottom: 1px solid var(--white);
 }
 .products {
     width: available;
@@ -149,4 +149,15 @@ body {
 .category a{
     text-decoration: none;
     color: white;
+}
+.cart-container {
+    margin: 1em 0;
+    background-color: var(--lightblue);
+    color: var(--white);
+    font-weight: bolder;
+    font-size: larger;
+    border-radius: 0.7em;
+    width: 10em;
+    padding: 0.5em 1em;
+
 }
