@@ -44,11 +44,11 @@
 
         <div class="category navbar-element">
 
-            <div class="category-link"><a>Inland</a></div>
-            <div class="category-link"><a>Abroad</a></div>
-            <div class="category-link"><a>With Kids</a></div>
-            <div class="category-link"><a>In Relationship</a></div>
-            <div class="category-link"><a>Single</a></div>
+            <div class="category-link"><a href="/category/?category_id=1">With Kids</a></div>
+            <div class="category-link"><a href="/category/?category_id=2">Single</a></div>
+            <div class="category-link"><a href="/category/?category_id=3">In Relationship</a></div>
+            <div class="category-link"><a href="/category/?category_id=4">Abroad</a></div>
+            <div class="category-link"><a href="/category/?category_id=5">Inland</a></div>
 
         </div>
 
@@ -68,10 +68,6 @@
 
     </div>
 
-    <!--categories-->
-    <!--div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
-    </div-->
 
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">

@@ -12,6 +12,14 @@
     --black: #161616;
 }
 
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+
+    background-color: var(--darkgrey);
+    font-family: Ubuntu, sans-serif;
+}
 
 .glyphicon {
     margin-right:5px;
@@ -77,12 +85,20 @@
 }
 .page-icon > img {
     width: 7em;
+    margin-right: 1em;
+}
+.page-title {
+    font-size: xx-large;
+    align-self: center;
 }
 .page-header {
-    background-color: var(--darkgrey);
+    margin-left: 4em;
+    margin-right: 4em;
+    padding: 1em 0;
     display: flex;
     flex-direction: row;
     color: white;
+    border-bottom: 1px solid var(--white);
 }
 .container {
     background-color: var(--darkgrey);
