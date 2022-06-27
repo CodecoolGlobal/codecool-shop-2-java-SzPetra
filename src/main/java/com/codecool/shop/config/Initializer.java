@@ -46,8 +46,8 @@ public class Initializer implements ServletContextListener {
 
 
         //setting up products and printing it
-        productDataStore.add(new Product("Amazon Fire", new BigDecimal("49.9"), "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", family, dani));
-        productDataStore.add(new Product("Lenovo IdeaPad Miix 700", new BigDecimal("479"), "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", family, petra));
-        productDataStore.add(new Product("Amazon Fire HD 8", new BigDecimal("89"), "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", family, dani));
+        productDataStore.add(new Product("Cozy Family Life in Hawaii", new BigDecimal("2000"), "USD", "3 wonderful blonde and blue eyed kids and a husband with surfing abilities. Living a relaxing and cozy life on the beautiful beach of Hawaii USA. The kids are 2, 4 and 5 years old. Brody is a very helpful and loving husband, who loves his family.", withKids, pappCompany));
+        productDataStore.add(new Product("La petite mort", new BigDecimal("800"), "EUR", "Croissants for breakfast, cheese with wine for lunch, living by the Eiffel Tower. High fashioned people, culture and a very opened-mindset. Enjoy all that Paris can offer you.", abroad, daniCompany));
+        productDataStore.add(new Product("be the Sound of Balaton", new BigDecimal("500.000"), "HUF", "If you've always loved music, this is the perfect opportunity for you. Now you can be the Sound of Balaton. Living in a mansion by the hungarian sea. As a very famous producer, you have studios in the basement and a pool in the garden. Living your best life.", inland, petraCompany));
     }
 }
