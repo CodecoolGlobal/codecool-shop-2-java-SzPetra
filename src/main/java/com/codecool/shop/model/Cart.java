@@ -28,7 +28,16 @@ public class Cart {
     }
 
     public void removeProduct(Product product){
-
+        LineItem itemToRemove = new LineItem(product);
+        for(LineItem item : products){
+            if(item.equals(itemToRemove)){
+                item.setQuantity(item.getQuantity()-1);
+                if(item.getQuantity() <= 0){
+                    products.remove(itemToRemove);
+                }
+                return;
+            }
+        }
     }
 
     public BigDecimal getFullPrice(){
