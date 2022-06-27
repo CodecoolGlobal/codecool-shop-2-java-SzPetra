@@ -30,14 +30,40 @@
 
 <body>
 
-<div class="jumbotron text-center">
-    <h1>Codecool Shop</h1>
-</div>
+<div th:replace="header.html :: copy"></div>
 
 <div class="container">
-    <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+    <!--Navigation bar at the side-->
+    <div class="card navbar">
+
+        <div class="personal-info navbar-element">
+            <div class="profile-picture"><img src="static/img/profile-picture-placeholder.jpeg"></div>
+            <div class="profile-name">Pelda Bela</div>
+            <div class="profile-email">pelda.bela@gmail.com</div>
+        </div>
+
+        <div class="category navbar-element">
+
+
+            <div class="category-link"><a>Inland</a></div>
+            <div class="category-link"><a>Abroad</a></div>
+            <div class="category-link"><a>With Kids</a></div>
+            <div class="category-link"><a>In Relationship</a></div>
+            <div class="category-link"><a>Single</a></div>
+
+
+        </div>
+
+
+        <div class="supplier navbar-element">Supplier</div>
+
+
     </div>
+
+    <!--categories-->
+    <!--div class="card">
+        <strong th:text="${category.name}">Category Title</strong>
+    </div-->
 
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
@@ -61,7 +87,7 @@
 
 </div>
 
-<div th:replace="footer.html :: copy"></div>
+<div class="footer" th:replace="footer.html :: copy"></div>
 
 </body>
 </html>

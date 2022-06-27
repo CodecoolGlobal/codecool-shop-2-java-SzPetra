@@ -1,3 +1,18 @@
+:root {
+    --darkgrey: #191927;
+    --lightgrey: #232330;
+    --white: #ffffff;
+    --lightblue: #14a4ad;
+    --lightgreen: #287e6e;
+    --darkgreen: #1e363c;
+    --darkorange: #413432;
+    --lightorange: #9b6030;
+    --lighred: #8c2b31;
+    --darkred: #4e202d;
+    --black: #161616;
+}
+
+
 .glyphicon {
     margin-right:5px;
 }
@@ -59,4 +74,57 @@
 .list-group-item-text
 {
     margin: 0 0 11px;
+}
+.page-icon > img {
+    width: 7em;
+}
+.page-header {
+    background-color: var(--darkgrey);
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.container {
+    background-color: var(--darkgrey);
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+.navbar {
+    width: 40em;
+    color: var(--white);
+    display: flex;
+    background-color: var(--darkgrey);
+    margin-right: 5em;
+}
+.navbar-element {
+    background-color: var(--lightgrey);
+    margin: 1em;
+    padding: 2em;
+    width: 20em;
+    margin-right: 5em;
+}
+.products {
+    width: available;
+}
+#footer {
+    background-color: var(--lightgrey);
+    color: var(--white);
+    text-align: center;
+    line-height: 20%;
+    font-size: 20px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 26%;
+    height: 43px;
+}
+.profile-picture > img {
+    width: 7em;
+    border-radius: 0.7em;
+    margin-bottom: 1em;
+
+}
+.category-link {
+    padding: 0.2em;
 }
