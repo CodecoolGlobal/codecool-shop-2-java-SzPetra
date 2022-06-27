@@ -1,9 +1,7 @@
 package com.codecool.shop.model;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Cart {
@@ -41,7 +39,11 @@ public class Cart {
     }
 
     public BigDecimal getFullPrice(){
-        return new BigDecimal(1);
+        BigDecimal result = new BigDecimal(0);
+        for(LineItem item: products){
+            result.add(item.getTotalPrice());
+        }
+        return result;
     }
 
     public void checkoutCart(){
