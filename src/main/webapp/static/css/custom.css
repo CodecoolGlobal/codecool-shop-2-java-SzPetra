@@ -128,3 +128,7 @@
 .category-link {
     padding: 0.2em;
 }
+.category a{
+    text-decoration: none;
+    color: white;
+}
