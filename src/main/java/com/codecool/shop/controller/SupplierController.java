@@ -24,7 +24,7 @@ public class SupplierController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
-        int supplierId = Integer.parseInt(request.getParameter("supplier_id"));
+        int supplierId = Integer.parseInt(request.getParameter("supplier"));
 
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
