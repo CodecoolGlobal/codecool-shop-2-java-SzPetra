@@ -2,16 +2,18 @@ package com.codecool.shop.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Cart {
 
     private User owner;
-    private List<LineItem> products;
+    private Set<LineItem> products;
 
     public Cart(User owner) {
         this.owner = owner;
-        this.products = new ArrayList<>();
+        this.products = new HashSet<>();
     }
 
     public void addProduct(Product product){
