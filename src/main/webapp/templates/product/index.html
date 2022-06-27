@@ -55,7 +55,17 @@
         </div>
 
 
-        <div class="supplier navbar-element">Supplier</div>
+        <div class="supplier navbar-element">
+            <form action="/supplier/" method="get">
+                <label for="filter-by-supplier">Filter by supplier: </label>
+                <select id="filter-by-supplier" name="supplier">
+                    <option value="2">Petrus Zrt.</option>
+                    <option value="1">Papp Co.</option>
+                    <option value="3">Dani Inc.</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
 
 
     </div>
