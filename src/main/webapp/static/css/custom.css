@@ -9,6 +9,7 @@
     --lightorange: #9b6030;
     --lighred: #8c2b31;
     --darkred: #4e202d;
+    --black: #161616;
 }
 
 
@@ -107,7 +108,7 @@
     width: available;
 }
 #footer {
-    background-color: var(--darkgrey);
+    background-color: var(--lightgrey);
     color: var(--white);
     text-align: center;
     line-height: 20%;
