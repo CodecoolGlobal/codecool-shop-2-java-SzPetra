@@ -58,11 +58,7 @@ public class LineItem {
 
     @Override
     public String toString() {
-        return "[" +
-                "productId=" + productId +
-                ", productName='" + productName + '\'' +
-                ", unitPrice=" + unitPrice +
-                ", quantity=" + quantity +
-                ']';
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }
