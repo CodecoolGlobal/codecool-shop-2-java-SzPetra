@@ -1,16 +1,17 @@
 package com.codecool.shop.model;
 
 import java.math.BigDecimal;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cart {
 
     private User owner;
-    private Map<Product,Integer> products;
+    private List<LineItem> products;
 
-    public Cart(User owner, Map<Product, Integer> products) {
+    public Cart(User owner) {
         this.owner = owner;
-        this.products = products;
+        this.products = new ArrayList<>();
     }
 
     public void addProduct(Product product){
