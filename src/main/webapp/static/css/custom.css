@@ -60,3 +60,12 @@
 {
     margin: 0 0 11px;
 }
+.page-icon > img {
+    width: 7em;
+}
+.page-header {
+    background-color: #161616;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
