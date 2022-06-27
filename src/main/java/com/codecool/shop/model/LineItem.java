@@ -3,6 +3,7 @@ package com.codecool.shop.model;
 import com.google.gson.Gson;
 
 import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.Objects;
 
 public class LineItem {
@@ -10,12 +11,14 @@ public class LineItem {
     private final int productId;
     private final String productName;
     private final BigDecimal unitPrice;
+    private Currency defaultCurrency;
     private int quantity;
 
     public LineItem(Product product){
         this.productId = product.getId();
         this.productName = product.getName();
         this.unitPrice = product.getDefaultPrice();
+        this.defaultCurrency = product.getDefaultCurrency();
         this.quantity = 1;
     }
 
