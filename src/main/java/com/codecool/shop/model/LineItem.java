@@ -56,8 +56,13 @@ public class LineItem {
         return Objects.hash(productId);
     }
 
-    public String convertToJson(){
-        Gson gson = new Gson();
-        return gson.toJson(this);
+    @Override
+    public String toString() {
+        return "[" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", quantity=" + quantity +
+                ']';
     }
 }
