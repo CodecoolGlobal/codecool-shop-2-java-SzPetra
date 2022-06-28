@@ -3,7 +3,7 @@
     --lightgrey: #232330;
     --white: #ffffff;
     --lightblue: #14a4ad;
-    --lightgreen: #139475;
+    --lightgreen: #287e6e;
     --darkgreen: #1e363c;
     --darkorange: #413432;
     --lightorange: #cb823f;
@@ -111,8 +111,11 @@ body {
     width: 40em;
     height: max-content;
     color: var(--white);
+
     display: flex;
     flex-direction: column;
+    align-items: baseline;
+
     background-color: var(--darkgrey);
     margin-right: 5em;
 }
@@ -182,8 +185,27 @@ body {
     text-decoration: none;
     color: white;
 }
+#with-kids:hover {
+    color: var(--lightblue);
+}
+#single:hover {
+    color: var(--lightgreen);
+}
+#in-relationship:hover {
+    color: var(--lightorange);
+}
+#abroad:hover {
+    color: var(--lightred);
+}
+#inland:hover {
+    color: var(--lightpink);
+}
+.cart-container > a {
+    display: flex;
+    flex-direction: row;
+}
 .cart-container {
-    margin: 1em 0;
+    margin: 1em 2em;
     background-color: var(--lightblue);
     color: var(--white);
     font-weight: bolder;
@@ -230,4 +252,6 @@ body {
     opacity: 0%;
     height: 100%;
 }
-
+.cart-icon {
+    margin-right: 10px;
+}
