@@ -251,10 +251,10 @@ body {
 
 }
 #card-products {
-    background-color: var(--lightgrey);
+    background-color: var(--darkgrey);
     color: var(--white);
     border: none;
-    box-shadow: 7px 7px 7px #0c111f;
+    box-shadow: 7px 7px 7px 7px #0c111f;
 
     display: flex;
     flex-direction: column;
