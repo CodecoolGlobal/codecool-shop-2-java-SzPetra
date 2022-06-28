@@ -49,6 +49,10 @@ public class Cart {
         return result;
     }
 
+    public Set<LineItem> getAllProducts() {
+        return products;
+    }
+
     public void checkoutCart(){
 
     }

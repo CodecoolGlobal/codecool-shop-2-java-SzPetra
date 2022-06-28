@@ -40,6 +40,8 @@
     <!--Navigation bar at the side-->
     <div class="navbar">
 
+        <div class="cart-container"><a href="/cart"><div class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></div><div>Go to cart</div></a></div>
+
         <!--div class="personal-info navbar-element">
             <div class="profile-picture"><img src="static/img/profile-picture-placeholder.jpeg"></div>
             <div class="profile-name">Pelda Bela</div>
@@ -75,6 +77,10 @@
 
 
     <div id="products" class="row">
+        <!--lineitem for cart-->
+        <div id="cart-products"><p th:text="${cartproducts}"></p></div>
+
+
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
             <div class="card">
                 <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
@@ -87,13 +93,14 @@
                         <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                     </div>
                     <div class="card-text">
-                        <a class="btn btn-success" href="#">Add to cart</a>
+                        <a class="btn btn-success" th:href="'/add-to-cart/?cart_id=' + ${prod.id}">Add to cart</a>
                     </div>
-                </div>
+                </button>
             </div>
         </div>
     </div>
 
+    </div>
 </div>
 
 <div class="footer" th:replace="footer.html :: copy"></div>
