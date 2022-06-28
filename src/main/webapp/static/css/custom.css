@@ -272,10 +272,6 @@ body {
     height: 14em;
     width: 10em;
 }
-#description {
-    opacity: 0%;
-    height: 0;
-}
 .cart-icon {
     margin-right: 10px;
 }
