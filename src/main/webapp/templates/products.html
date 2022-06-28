@@ -4,7 +4,7 @@
 
 <div th:fragment="copy" id="products" class="row">
     <!--lineitem for cart-->
-    <div id="cart-products"><p th:text="${cartproducts}"></p></div>
+    <!--div id="cart-products"><p th:text="${cartproducts}"></p></div-->
 
 
     <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
@@ -21,8 +21,9 @@
                     <a th:id = "${prod.id}" class="btn btn-success">Add to cart</a>
                 </div>
             </div>
+            <p id="description" th:text="${prod.description}">Product description... </p>
         </div>
-        <p class="card-text" id="description" th:text="${prod.description}">Product description... </p>
+    </div>
 </div>
 
 </body>
