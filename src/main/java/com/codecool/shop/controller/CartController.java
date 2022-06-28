@@ -27,11 +27,15 @@ public class CartController extends HttpServlet {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         CartDao cartDataStore = CartDaoMem.getInstance();
 
+        System.out.println(cartDataStore.getAll());
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        //context.setVariable("category", productService.getProductCategory(categoryId));
-        context.setVariable("products", cartDataStore.getAll());
+
+        // it will need another template to display
+        context.setVariable("cartproducts", cartDataStore.getAll());
+
+
 
 
 

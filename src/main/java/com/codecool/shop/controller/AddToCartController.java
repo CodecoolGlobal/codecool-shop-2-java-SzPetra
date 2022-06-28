@@ -37,14 +37,8 @@ public class AddToCartController extends HttpServlet {
         cartDataStore.addProductInCart(productToAdd);
         System.out.println(cartDataStore.getAll());
 
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        //ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
 
-        TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
-        WebContext context = new WebContext(req, resp, req.getServletContext());
-        //context.setVariable("category", productService.getProductCategory(categoryId));
-        //context.setVariable("products", productService.getProductsForCategory(categoryId));
-
-        engine.process("product/index.html", context, resp.getWriter());
+        resp.sendRedirect(req.getContextPath() + "/");
+                
     }
 }

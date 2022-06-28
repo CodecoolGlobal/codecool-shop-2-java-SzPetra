@@ -77,6 +77,10 @@
 
 
     <div id="products" class="row">
+        <!--lineitem for cart-->
+        <div id="cart-products"><p th:text="${cartproducts}"></p></div>
+
+
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
             <div class="card">
                 <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
@@ -96,6 +100,7 @@
         </div>
     </div>
 
+    </div>
 </div>
 
 <div class="footer" th:replace="footer.html :: copy"></div>
