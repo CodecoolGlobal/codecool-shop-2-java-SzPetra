@@ -8,7 +8,7 @@ function init(){
 
 async function addCartHandler(e){
     const productId = e.currentTarget.id;
-    const url = `/add-to-cart?product_id=${productId}`
+    const url = `/add-to-cart/?product_id=${productId}`
     const response = await getApiResponse(url);
     if (!response.ok){
         console.log("ERROR")

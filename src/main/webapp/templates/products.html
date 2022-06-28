@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="copy" id="products" class="row">
+    <!--lineitem for cart-->
+    <div id="cart-products"><p th:text="${cartproducts}"></p></div>
+
+
+    <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
+        <div class="card" id="card-products">
+            <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
+            <div class="card-header">
+                <h5 class="card-title" th:text="${prod.name}">Product name</h5>
+            </div>
+            <div class="card-body">
+                <div class="card-text">
+                    <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
+                </div>
+                <div class="card-button-container">
+                    <a th:id = "${prod.id}" class="btn btn-success">Add to cart</a>
+                </div>
+            </div>
+        </div>
+        <p class="card-text" id="description" th:text="${prod.description}">Product description... </p>
+</div>
+
+</body>
+</html>

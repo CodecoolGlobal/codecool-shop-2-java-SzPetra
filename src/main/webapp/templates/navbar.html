@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="copy" class="navbar">
+
+        <div class="cart-container"><a href="/cart"><div class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></div><div>Go to cart</div></a></div>
+
+        <div class="category navbar-element">
+            <a class="category1" href="/category/?category_id=1"><div class="category-link"><div class="navbar-icon"><i class="fa-solid fa-people-group"></i></div>With Kids</div></a>
+            <a class="category2" href="/category/?category_id=2"><div class="category-link"><div class="navbar-icon"><i class="fa-solid fa-person"></i></div>Single</div></a>
+            <a class="category3" href="/category/?category_id=3"><div class="category-link"><div class="navbar-icon"><i class="fa-solid fa-heart"></i></div>In Relationship</div></a>
+            <a class="category4" href="/category/?category_id=4"><div class="category-link"><div class="navbar-icon"><i class="fa-solid fa-earth-americas"></i></div>Abroad</div></a>
+            <a class="category5" href="/category/?category_id=5"><div class="category-link"><div class="navbar-icon"><i class="fa-solid fa-house-user"></i></div>Inland</div></a>
+        </div>
+
+        <div class="supplier navbar-element">
+            <form action="/supplier/" method="get">
+                <label for="filter-by-supplier">Filter by supplier: </label>
+                <select id="filter-by-supplier" name="supplier">
+                    <option value="2">Petrus Zrt.</option>
+                    <option value="1">Papp Co.</option>
+                    <option value="3">Dani Inc.</option>
+                </select>
+                <button class="supplier-search-btn" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
