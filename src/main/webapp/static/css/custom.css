@@ -279,3 +279,6 @@ body {
 .cart-icon {
     margin-right: 10px;
 }
+.card a {
+    border: none;
+}
