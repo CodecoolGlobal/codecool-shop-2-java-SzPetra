@@ -151,6 +151,11 @@ body {
 .category1:hover {
     color: var(--lightred);
 }
+.category1 > i {
+    width: 1em;
+    height: 1em;
+    color: var(--lightred);
+}
 .category2:hover {
     color: var(--lightorange);
 }
