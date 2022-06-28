@@ -4,6 +4,14 @@ function init(){
         let button = container.querySelector("a");
         button.addEventListener("click",addCartHandler);
     }
+
+    const imageToClick = document.getElementById("image");
+    imageToClick.addEventListener("click", handleProductRoute);
+}
+
+function handleProductRoute() {
+
+    alert("Hey");
 }
 
 async function addCartHandler(e){
