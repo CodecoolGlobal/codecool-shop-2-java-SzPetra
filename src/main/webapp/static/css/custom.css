@@ -108,8 +108,8 @@ body {
     margin-right: 0;
 }
 .navbar {
-    margin-left: 4em;
-    width: 40em;
+    margin-left: 0;
+    width: 35em;
     height: max-content;
     color: var(--white);
 
@@ -118,7 +118,7 @@ body {
     align-items: baseline;
 
     background-color: var(--darkgrey);
-    margin-right: 5em;
+    margin-right: 2em;
 }
 .navbar-element {
     padding: 1em 2em;
