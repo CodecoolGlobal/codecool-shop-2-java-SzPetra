@@ -174,27 +174,12 @@ body {
     color: var(--lightgreen);
 }
 .category5:hover {
-    color: var(--lightred);
+    color: var(--lightpink);
 }
 
 .category a{
     text-decoration: none;
     color: white;
-}
-#with-kids:hover {
-    color: var(--lightblue);
-}
-#single:hover {
-    color: var(--lightgreen);
-}
-#in-relationship:hover {
-    color: var(--lightorange);
-}
-#abroad:hover {
-    color: var(--lightred);
-}
-#inland:hover {
-    color: var(--lightpink);
 }
 .cart-container {
     margin: 1em 0;
