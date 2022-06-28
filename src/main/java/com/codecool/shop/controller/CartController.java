@@ -35,11 +35,7 @@ public class CartController extends HttpServlet {
         // it will need another template to display
         context.setVariable("cartproducts", cartDataStore.getAll());
 
-
-
-
-
-        engine.process("product/index.html", context, resp.getWriter());
+        engine.process("cart-review.html", context, resp.getWriter());
     }
 
 
