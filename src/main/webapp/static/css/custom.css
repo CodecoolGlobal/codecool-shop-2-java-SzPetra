@@ -135,6 +135,7 @@ body {
     right: 0;
     width: 26%;
     height: 43px;
+    opacity: 50%;
 }
 .profile-picture > img {
     width: 7em;
@@ -204,5 +205,41 @@ body {
     border-radius: .7em;
     padding: 0.3em 0.5em;
     font-weight: bolder;
-
 }
+.supplier-search-btn:hover {
+    background-color: var(--darkgrey);
+    border: none;
+}
+.images{
+    height: 10px;
+}
+.btn-success {
+    background-color: var(--lightblue);
+}
+.btn-success:hover {
+    background-color: var(--darkgrey);
+    border: none;
+}
+#products {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    height: 60px;
+}
+.card {
+    background-color: var(--darkgrey);
+    color: var(--white);
+    border: none;
+    box-shadow: 27px 7px 7px #0c111f;
+    height: 100%;
+}
+.card:hover {
+    opacity: 1%;
+}
+#description {
+    opacity: 0%;
+    height: 100%;
+}
+#description:hover {
+    opacity: 100%;
+}
+
