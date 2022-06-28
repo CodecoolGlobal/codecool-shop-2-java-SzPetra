@@ -37,6 +37,9 @@ public class ProductController extends HttpServlet {
         // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         // context.setVariables(params);
 
+        String click = req.getParameter("btn-success");
+        System.out.println(click);
+
         engine.process("product/index.html", context, resp.getWriter());
 
 
