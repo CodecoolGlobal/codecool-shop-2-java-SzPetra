@@ -25,7 +25,7 @@ public class AddToCartController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int productId = Integer.parseInt(req.getParameter("cart_id"));
+        int productId = Integer.parseInt(req.getParameter("product_id"));
 
 
         ProductDao productDataStore = ProductDaoMem.getInstance();
