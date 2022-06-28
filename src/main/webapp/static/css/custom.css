@@ -145,8 +145,15 @@ body {
     padding: 1em 1em;
     border-radius: 0.7em;
 }
+.navbar-icon {
+    margin-right: 10px;
+}
 .category-link:hover {
     background-color: var(--lightgrey);
+}
+.category-link {
+    display: flex;
+    flex-direction: row;
 }
 .category1:hover {
     color: var(--lightred);
@@ -182,5 +189,19 @@ body {
     border-radius: 0.7em;
     width: 10em;
     padding: 0.5em 1em;
+}
+.supplier {
+    box-shadow: 5px 5px 5px 5px #0c111f;
+    border-radius: 0.7em;
+    padding: 2em;
+}
+.supplier-search-btn {
+    color: var(--white);
+    background-color: var(--lightblue);
+    border: none;
+    margin-top: 1em;
+    border-radius: .7em;
+    padding: 0.3em 0.5em;
+    font-weight: bolder;
 
 }
