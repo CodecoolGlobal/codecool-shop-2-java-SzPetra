@@ -203,6 +203,10 @@ body {
 .cart-container > a {
     display: flex;
     flex-direction: row;
+    color: white;
+}
+.cart-container > a:hover {
+    text-decoration: none;
 }
 .cart-container {
     margin: 1em 2em;
@@ -240,7 +244,6 @@ body {
 #products {
     display: inline-grid;
     grid-template-columns: auto auto auto;
-    height: 40px;
 }
 .card {
     background-color: var(--darkgrey);
