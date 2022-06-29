@@ -19,5 +19,10 @@ public class CartService {
         cartDao.addProduct(productToAdd);
     }
 
+    public void removeProductFromCart(int id){
+        Product productToRemove = productDao.find(id);
+        cartDao.remove(productToRemove);
+    }
+
 
 }

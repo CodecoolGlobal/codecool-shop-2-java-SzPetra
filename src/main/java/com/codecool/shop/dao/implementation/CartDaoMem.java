@@ -31,7 +31,7 @@ public class CartDaoMem implements CartDao  {
 
 
     @Override
-    public void remove(int id) {
+    public void remove(Product product) {
     }
 
     @Override
