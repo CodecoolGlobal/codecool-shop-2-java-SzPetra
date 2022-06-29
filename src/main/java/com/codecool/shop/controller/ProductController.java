@@ -25,7 +25,6 @@ public class ProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         int productId = Integer.parseInt(request.getParameter("prod_id"));
-        System.out.println(productId);
 
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
@@ -34,7 +33,6 @@ public class ProductController extends HttpServlet {
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
         WebContext context = new WebContext(request, resp, request.getServletContext());
         context.setVariable("product", productService.getProductForProductId(productId));
-        System.out.println(productService.getProductForProductId(productId));
 
         engine.process("prod-description.html", context, resp.getWriter());
 

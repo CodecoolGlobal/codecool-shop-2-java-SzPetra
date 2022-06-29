@@ -34,23 +34,25 @@
     <div class="container">
         <div th:replace="navbar.html::copy"></div>
 
-        <div class="description" th:each="prod,iterStat : ${product}">
-            <div class="desc-title">
-                <h4 th:text="${prod.name}">Product name</h4>
-                <img id="prof-pic" th:attr="src='/static/img/prof_' + ${prod.id} + '.jpg'" alt="">
+        <div class="description-with-picture">
+            <div class="description" th:each="prod,iterStat : ${product}">
+                <div class="desc-title">
+                    <h4 th:text="${prod.name}">Product name</h4>
+                    <img id="prof-pic" th:attr="src='/static/img/prof_' + ${prod.id} + '.jpg'" alt="">
+                </div>
+                <p th:text="${prod.description}">Product description... </p>
+                <p th:text="${prod.getPrice()}">100 USD</p>
+                <a th:id = "${prod.id}" class=" btn btn-success">Add to cart</a>
             </div>
-            <p th:text="${prod.description}">Product description... </p>
-            <p th:text="${prod.getPrice()}">100 USD</p>
-            <a th:id = "${prod.id}" class=" btn btn-success">Add to cart</a>
-        </div>
-    </div>
 
-    <div class="pic-row">
-        <div class="column">
-            <img src="/static/img/balaton_2.jpg" alt="Lake Balaton 2" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="/static/img/balaton_3.jpg" alt="Lake Balaton 3" style="width:100%">
+            <div class="pic-row">
+                <div class="column">
+                    <img src="/static/img/balaton_2.jpg" alt="Lake Balaton 2" style="width:100%">
+                </div>
+                <div class="column">
+                    <img src="/static/img/balaton_3.jpg" alt="Lake Balaton 3" style="width:100%">
+                </div>
+            </div>
         </div>
     </div>
 

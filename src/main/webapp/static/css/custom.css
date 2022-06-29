@@ -290,6 +290,7 @@ body {
 .pic-row {
     display: flex;
     flex-direction: row;
+    margin-top: 40px;
 }
 
 .column {
@@ -298,7 +299,7 @@ body {
 }
 #prof-pic {
     height: 60px;
-    border-radius: 50%;
+    border-radius:.7em;
 }
 .desc-title {
     display: flex;
