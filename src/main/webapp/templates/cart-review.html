@@ -15,14 +15,18 @@
                   <b>4</b>
                 </span>
                 </h4>
+                <div class="clear-button-container">
+                    <button id="clear-button">CLEAR</button>
+                </div>
                 <div th:each="item : ${cartContent}">
                     <div th:id="${item.get('id')}">
                         <p>
                             <a href="/product" th:text="${item.get('productName')}"></a>
                             <span class="unit-price" th:text="${item.get('unitPrice')} + ' ' + ${item.get('currency')}"></span>
-                            <button class="button-decrease">-</button>
+                            <button class="button-decrease" value="-1">-</button>
                             <span class="quantity" th:text="${item.get('quantity')}"></span>
-                            <button class="button-increase">+</button>
+                            <button class="button-increase" value="1">+</button>
+                            <button class="button-delete">DELETE</button>
                             <span class="quantity" th:text="${item.get('subtotalPrice')} + ' ' + ${item.get('currency')}"></span>
                             <br>
                         </p>
