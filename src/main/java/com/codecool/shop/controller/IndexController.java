@@ -24,9 +24,6 @@ public class IndexController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("products", productDataStore.getAll());
 
-        String click = req.getParameter("btn-success");
-        System.out.println(click);
-
         engine.process("product/index.html", context, resp.getWriter());
 
 
