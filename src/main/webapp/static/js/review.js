@@ -2,7 +2,7 @@ function init(){
     const quantityChangeButtons = document.querySelectorAll(".button-quantity-change")
     const deleteButtons = document.querySelectorAll(".button-delete")
     addEventHandlers(quantityChangeButtons, quantityChangeHandler)
-    addEventHandlers(deleteButtons, (e)=>{console.log(e.currentTarget)})
+    addEventHandlers(deleteButtons, deleteHandler)
 }
 
 function addEventHandlers(buttons, eventHandler){

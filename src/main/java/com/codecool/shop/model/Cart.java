@@ -62,4 +62,14 @@ public class Cart {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(products);
     }
+
+    public LineItem getLineItem(Product product){
+        LineItem linItemToFind = new LineItem(product);
+        for(LineItem item : products){
+            if(item.equals(linItemToFind)){
+                return item;
+            }
+        }
+        return null;
+    }
 }
