@@ -40,6 +40,11 @@ public class CartService {
         return String.valueOf(cartDao.getTotalPrice());
     }
 
+    public String getLintItemById(int id){
+        Product productToGet = productDao.find(id);
+        return cartDao.getLineItem(productToGet).toString();
+    }
+
     private Map<String, String> createItemDetails(LineItem item){
         Map<String, String> itemDetails = new HashMap<>();
         itemDetails.put("id", String.valueOf(item.getProductId()));
