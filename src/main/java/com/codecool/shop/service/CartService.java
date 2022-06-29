@@ -31,15 +31,19 @@ public class CartService {
         Set<LineItem> lineItems = cartDao.getAll();
         List<Map<String, String>> result = new ArrayList<>();
         for( LineItem item : lineItems){
-            Map<String, String> itemDetails = new HashMap<>();
-            itemDetails.put("id", String.valueOf(item.getProductId()));
-            itemDetails.put("productName", item.getProductName());
-            itemDetails.put("unitPrice", item.getUnitPrice().toString());
-            itemDetails.put("currency", item.getDefaultCurrency().toString());
-            itemDetails.put("subtotalPrice", item.getTotalPrice().toString());
-            result.add(itemDetails);
+            result.add(createItemDetails(item));
         }
         return result;
+    }
+
+    private Map<String, String> createItemDetails(LineItem item){
+        Map<String, String> itemDetails = new HashMap<>();
+        itemDetails.put("id", String.valueOf(item.getProductId()));
+        itemDetails.put("productName", item.getProductName());
+        itemDetails.put("unitPrice", item.getUnitPrice().toString());
+        itemDetails.put("currency", item.getDefaultCurrency().toString());
+        itemDetails.put("subtotalPrice", item.getTotalPrice().toString());
+        return itemDetails;
     }
 
 
