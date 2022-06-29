@@ -7,6 +7,7 @@ import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.CartDaoMem;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.service.CartService;
 import com.codecool.shop.service.ProductService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -24,16 +25,14 @@ public class CartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        CartDao cartDataStore = CartDaoMem.getInstance();
-
-        System.out.println(cartDataStore.getAll());
+        CartService cartService = new CartService(CartDaoMem.getInstance(), ProductDaoMem.getInstance());
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         // it will need another template to display
-        context.setVariable("cartproducts", cartDataStore.getAll());
+        context.setVariable("cartContent", cartService.getCartContent());
+        context.setVariable("totalPrice", cartService.getTotalPriceOfCart());
 
         engine.process("cart-review.html", context, resp.getWriter());
     }
