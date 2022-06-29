@@ -238,9 +238,15 @@ body {
 }
 .btn-success {
     background-color: var(--lightblue);
+    color: var(--white);
 }
 .btn-success:hover {
     background-color: var(--lightblue);
+    color: var(--white);
+}
+.btn-success > a{
+    text-decoration: none;
+    color: var(--white);
 }
 #products {
     display: flex;
@@ -277,4 +283,27 @@ body {
 }
 .card a {
     border: none;
+}
+.description {
+    color: var(--white);
+}
+.pic-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    flex: 33.33%;
+    padding: 5px;
+}
+#prof-pic {
+    height: 80px;
+    border-radius: 50%;
+    padding-bottom: 10px;
+}
+.desc-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
