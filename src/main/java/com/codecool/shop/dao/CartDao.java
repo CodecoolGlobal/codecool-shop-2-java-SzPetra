@@ -4,6 +4,7 @@ import com.codecool.shop.model.Cart;
 import com.codecool.shop.model.LineItem;
 import com.codecool.shop.model.Product;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 public interface CartDao {
@@ -14,5 +15,5 @@ public interface CartDao {
 
     Set<LineItem> getAll();
 
-    String getTotalPrice();
+    BigDecimal getTotalPrice();
 }

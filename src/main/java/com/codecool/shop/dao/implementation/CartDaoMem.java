@@ -3,6 +3,7 @@ package com.codecool.shop.dao.implementation;
 import com.codecool.shop.dao.CartDao;
 import com.codecool.shop.model.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -46,7 +47,7 @@ public class CartDaoMem implements CartDao  {
     }
 
     @Override
-    public String getTotalPrice() {
-        return String.valueOf(data.getFullPrice());
+    public BigDecimal getTotalPrice() {
+        return data.getFullPrice();
     }
 }

@@ -36,6 +36,10 @@ public class CartService {
         return result;
     }
 
+    public String getTotalPriceOfCart(){
+        return String.valueOf(cartDao.getTotalPrice());
+    }
+
     private Map<String, String> createItemDetails(LineItem item){
         Map<String, String> itemDetails = new HashMap<>();
         itemDetails.put("id", String.valueOf(item.getProductId()));
