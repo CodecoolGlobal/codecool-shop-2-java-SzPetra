@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/checkout/"})
+@WebServlet(urlPatterns = {"/checkout"})
 public class CheckoutController extends HttpServlet {
 
     @Override
