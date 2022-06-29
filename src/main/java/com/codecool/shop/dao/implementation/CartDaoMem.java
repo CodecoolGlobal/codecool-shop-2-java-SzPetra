@@ -35,7 +35,7 @@ public class CartDaoMem implements CartDao  {
     }
 
     @Override
-    public void addProductInCart(Product product) {
+    public void addProduct(Product product) {
         data.addProduct(product);
     }
 
