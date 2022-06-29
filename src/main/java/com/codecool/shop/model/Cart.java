@@ -44,7 +44,8 @@ public class Cart {
     public BigDecimal getFullPrice(){
         BigDecimal result = new BigDecimal(0);
         for(LineItem item: products){
-            result.add(item.getTotalPrice());
+            BigDecimal price = item.getTotalPrice();
+            result = result.add(price);
         }
         return result;
     }

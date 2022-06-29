@@ -46,6 +46,7 @@ public class CartService {
         itemDetails.put("productName", item.getProductName());
         itemDetails.put("unitPrice", item.getUnitPrice().toString());
         itemDetails.put("currency", item.getDefaultCurrency().toString());
+        itemDetails.put("quantity", String.valueOf(item.getQuantity()));
         itemDetails.put("subtotalPrice", item.getTotalPrice().toString());
         return itemDetails;
     }

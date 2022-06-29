@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/checkout.css" />
 </head>
 <body>
 <div class="row">
@@ -17,11 +15,19 @@
                   <b>4</b>
                 </span>
                 </h4>
-                <div th:each="lineItem, stat : ${cartproducts}">
-                    <p><a href="#" th:text="${lineItem.getProductName()}"></a> <span class="unit-price" th:text="${lineItem.getTotalPrice()}"></span></p>
+                <div th:each="item : ${cartContent}">
+                    <p>
+                        <a href="/product" th:text="${item.get('productName')}"></a>
+                        <span class="unit-price" th:text="${item.get('unitPrice')} + ' ' + ${item.get('currency')}"></span>
+                        <button class="button-decrease">-</button>
+                        <span class="quantity" th:text="${item.get('quantity')}"></span>
+                        <button class="button-increase">+</button>
+                        <span class="quantity" th:text="${item.get('subtotalPrice')} + ' ' + ${item.get('currency')}"></span>
+                        <br>
+                    </p>
                 </div>
                 <hr>
-                <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                <p>Total <span class="price" style="color:black" th:text="${totalPrice} + 'EUR'"><b></b></span></p>
             </div>
         </div>
     </div>

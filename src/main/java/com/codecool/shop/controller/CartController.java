@@ -33,6 +33,7 @@ public class CartController extends HttpServlet {
         // it will need another template to display
         context.setVariable("cartContent", cartService.getCartContent());
         context.setVariable("totalPrice", cartService.getTotalPriceOfCart());
+        System.out.println(cartService.getTotalPriceOfCart());
 
         engine.process("cart-review.html", context, resp.getWriter());
     }
