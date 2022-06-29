@@ -42,6 +42,10 @@ public class CartService {
 
     public String getLintItemById(int id){
         Product productToGet = productDao.find(id);
+        LineItem result = cartDao.getLineItem(productToGet);
+        if(result == null){
+            return null;
+        }
         return cartDao.getLineItem(productToGet).toString();
     }
 
