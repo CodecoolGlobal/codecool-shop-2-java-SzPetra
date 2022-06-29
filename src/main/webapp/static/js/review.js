@@ -13,8 +13,13 @@ function addEventHandlers(buttons, eventHandler){
 
 function quantityChangeHandler(e){
     const changeValue = e.currentTarget.value;
-    const id = e.currentTarget.parentElement.id;
+    const id = e.currentTarget.parentElement.parentElement.id;
     console.log(id);
+    console.log(changeValue);
+}
+
+function deleteHandler(e){
+    const id = e.currentTarget.parentElement.parentElement.id;
 }
 
 init()
