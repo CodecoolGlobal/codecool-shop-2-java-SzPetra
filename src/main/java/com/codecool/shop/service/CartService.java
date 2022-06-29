@@ -2,7 +2,10 @@ package com.codecool.shop.service;
 
 import com.codecool.shop.dao.CartDao;
 import com.codecool.shop.dao.ProductDao;
+import com.codecool.shop.model.LineItem;
 import com.codecool.shop.model.Product;
+
+import java.util.*;
 
 public class CartService {
 
@@ -22,6 +25,21 @@ public class CartService {
     public void removeProductFromCart(int id){
         Product productToRemove = productDao.find(id);
         cartDao.remove(productToRemove);
+    }
+
+    public List<Map<String, String>> getCartContent(){
+        Set<LineItem> lineItems = cartDao.getAll();
+        List<Map<String, String>> result = new ArrayList<>();
+        for( LineItem item : lineItems){
+            Map<String, String> itemDetails = new HashMap<>();
+            itemDetails.put("id", String.valueOf(item.getProductId()));
+            itemDetails.put("productName", item.getProductName());
+            itemDetails.put("unitPrice", item.getUnitPrice().toString());
+            itemDetails.put("currency", item.getDefaultCurrency().toString());
+            itemDetails.put("subtotalPrice", item.getTotalPrice().toString());
+            result.add(itemDetails);
+        }
+        return result;
     }
 
 

@@ -7,7 +7,6 @@ import java.util.Currency;
 import java.util.Objects;
 
 public class LineItem {
-
     private final int productId;
     private final String productName;
     private final BigDecimal unitPrice;
@@ -44,6 +43,15 @@ public class LineItem {
 
     public boolean compareToProduct(Product product){
         return productId == product.getId();
+    }
+
+
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
+
+    public Currency getDefaultCurrency() {
+        return defaultCurrency;
     }
 
     @Override
