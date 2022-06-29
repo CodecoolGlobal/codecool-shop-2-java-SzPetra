@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Checkout</title>
     <link rel="stylesheet" type="text/css" href="/static/css/checkout.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+
+  <!--fontawsome -->
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/4e97a990ca.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<div th:replace="header.html :: copy"></div>
+
 <div class="row">
   <div class="col-75">
     <div class="container">
@@ -35,7 +43,7 @@
             </div>
           </div>
 
-          <div class="col-50">
+          <div class="col-50 payment">
             <h3>Payment</h3>
             <label for="fname">Accepted Cards</label>
             <div class="icon-container">
@@ -89,6 +97,8 @@
     </div>
   </div>
 </div>
+
+<div class="footer" th:replace="footer.html :: copy"></div>
 
 </body>
 </html>

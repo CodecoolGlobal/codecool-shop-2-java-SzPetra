@@ -1,15 +1,37 @@
+:root {
+    --darkgrey: #191927;
+    --lightgrey: #232330;
+    --white: #ffffff;
+    --lightblue: #14a4ad;
+    --lightgreen: #287e6e;
+    --darkgreen: #1e363c;
+    --darkorange: #413432;
+    --lightorange: #cb823f;
+    --lightred: #b54549;
+    --darkred: #4e202d;
+    --black: #161616;
+    --lightpink: #FFB6C1
+}
+
+
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -16px;
+    margin: 0 4em 2em 4em;
+    color: var(--white);
 }
 
 .col-25 {
     flex: 25%;
 }
 
+/* billing address information */
 .col-50 {
     flex: 50%;
+    background-color: var(--lightgrey);
+    box-shadow: 7px 7px 7px #0c111f;
+    width: 100%;
+    margin-bottom: 2em;
 }
 
 .col-75 {
@@ -23,14 +45,11 @@
 }
 
 .container {
-    background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
+
 }
 
 input[type=text] {
-    width: 100%;
+    width: 90%;
     margin-bottom: 20px;
     padding: 12px;
     border: 1px solid #ccc;
