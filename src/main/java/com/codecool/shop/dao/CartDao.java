@@ -13,4 +13,6 @@ public interface CartDao {
     void addProduct(Product product);
 
     Set<LineItem> getAll();
+
+    String getTotalPrice();
 }

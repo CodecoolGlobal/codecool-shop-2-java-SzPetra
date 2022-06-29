@@ -44,4 +44,9 @@ public class CartDaoMem implements CartDao  {
     public Set<LineItem> getAll() {
         return data.getAllProducts();
     }
+
+    @Override
+    public String getTotalPrice() {
+        return String.valueOf(data.getFullPrice());
+    }
 }
