@@ -23,9 +23,28 @@ public class SaveOrderController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String userName = request.getParameter("userName").toString();
-        PrintWriter pw = response.getWriter();
-        pw.write(userName);
+        String userName = request.getParameter("firstname");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String state = request.getParameter("state");
+        String zipCode = request.getParameter("zip");
+        String cardName = request.getParameter("cardname");
+        String cardNumber = request.getParameter("cardnumber");
+        String expMonth = request.getParameter("expmonth");
+        String expYear = request.getParameter("expyear");
+        String cvv = request.getParameter("cvv");
+
         System.out.println(userName);
+        System.out.println(email);
+        System.out.println(address);
+        System.out.println(city);
+        System.out.println(state);
+        System.out.println(zipCode);
+        System.out.println(cardName);
+        System.out.println(cardNumber);
+        System.out.println(expMonth);
+        System.out.println(expYear);
+        System.out.println(cvv);
     }
 }
