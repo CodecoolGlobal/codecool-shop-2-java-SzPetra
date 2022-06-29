@@ -21,7 +21,7 @@
                 <div th:each="item : ${cartContent}">
                     <div th:id="${item.get('id')}">
                         <p>
-                            <a href="/product" th:text="${item.get('productName')}"></a>
+                            <a th:href="'/product/?prod_id='+${item.get('id')}" th:text="${item.get('productName')}"></a>
                             <span class="unit-price" th:text="${item.get('unitPrice')} + ' ' + ${item.get('currency')}"></span>
                             <button class="button-decrease" value="-1">-</button>
                             <span class="quantity" th:text="${item.get('quantity')}"></span>
