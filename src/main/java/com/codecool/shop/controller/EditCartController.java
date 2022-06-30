@@ -28,16 +28,17 @@ public class EditCartController extends HttpServlet {
             CartDao cartDataStore = CartDaoMem.getInstance();
 
             Product productToAdd = productDataStore.find(productId);
+            resp.setStatus(200);
+        }else{
+            resp.sendRedirect(req.getContextPath() + "/");
         }
-
-        resp.sendRedirect(req.getContextPath() + "/");
-                
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CartService cartService = new CartService(CartDaoMem.getInstance(),ProductDaoMem.getInstance());
         cartService.clearCart();
+        resp.setStatus(200);
     }
 
 }
