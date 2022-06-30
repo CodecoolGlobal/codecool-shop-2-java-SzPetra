@@ -7,7 +7,10 @@ export let dataHandler = {
         const url = `/api/edit-item?product_id=${id}`
         await apiDelete(url);
     },
-    clearCart:"",
+    clearCart:async function(){
+        const url = "/api/edit-cart";
+        await apiDelete(url);
+    },
     changeLineItemQuantity:""
 
 }
@@ -28,7 +31,7 @@ async function apiGet(url){
     }
 }
 
-async function putApi(url){
+async function apiPut(url){
     const response = await fetch(url, {method:"PUT"});
     if (!response.ok){
         console.log("ERROR")
