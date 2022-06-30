@@ -36,7 +36,9 @@
     border-radius: 2em;
 
 }
-
+.total-price {
+    margin-left: 2em;
+}
 .col-75 {
     flex: 75%;
 }

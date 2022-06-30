@@ -5,6 +5,8 @@
   <title>Checkout</title>
   <link rel="stylesheet" type="text/css" href="/static/css/checkout.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+
   <script src="/static/js/checkout.js" defer></script>
 
   <!--fontawsome -->
@@ -15,7 +17,25 @@
 
 <div th:replace="header.html :: copy"></div>
 
+
 <div class="row">
+
+  <div class="col-25">
+    <div class="row cart-items-container">
+
+    <div class="cart-items" th:each="item : ${cartcontent}">
+      <div class="item-container" th:id="${item.get('id')}">
+        <a class="product-name item-info" th:href="'/product/?prod_id='+${item.get('id')}" th:text="${item.get('productName')}"></a>
+        <span class="quantity item-info" th:text="${item.get('subtotalPrice')} + ' ' + ${item.get('currency')}"></span>
+
+      </div>
+
+    </div>
+      <p class="total-price">Total <span th:text="${fullPrice}"></span></p>
+    </div>
+
+
+
   <div class="col-75">
     <div class="container">
       <form action="/api/save/order" method="post">
@@ -76,29 +96,13 @@
         </div>
         <!--label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
-        <input id="checkout-btn" type="submit" value="Continue to checkout" class="btn"-->
+        </label-->
+        <input id="checkout-btn" type="submit" value="Continue to checkout" class="btn">
       </form>
     </div>
   </div>
 
-  <div class="col-25">
-    <div class="container">
-      <h4>Cart
-        <span class="price">
-          <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
-        </span>
-      </h4>
-      <div th:each="item : ${cartcontent}">
-        <p>
-          <span th:text="${item.get('productName')}"></span>
-          <span class="unit-price" th:text="${item.get('unitPrice')} + ' ' + ${item.get('currency')}"></span>
-        </p>
-      </div>
-    </div>
 
-      <p>Total <span th:text="${fullPrice}"></span></p>
      </div>
 </div>
 
