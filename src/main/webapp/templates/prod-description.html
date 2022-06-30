@@ -43,7 +43,7 @@
                 </div>
                 <p class="product-description-details" th:text="${prod.description}">Product description... </p>
                 <p th:text="${prod.getPrice()}">100 USD</p>
-                <a th:id = "${prod.id}" class=" btn btn-success">Add to cart</a>
+                <a th:href="'/add-to-cart/?prod_id=' + ${prod.id}" th:id = "${prod.id}" class=" btn btn-success">Add to cart</a>
             </div>
 
             <div class="pic-row">

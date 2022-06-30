@@ -51,21 +51,20 @@
 
         <div class="row cart-items-container">
 
-        <div th:each="item : ${cartContent}">
+        <div class="cart-items" th:each="item : ${cartContent}">
             <div class="item-container" th:id="${item.get('id')}">
-                <a class="product-name" th:href="'/product/?prod_id='+${item.get('id')}" th:text="${item.get('productName')}"></a>
-                <span class="unit-price" th:text="${item.get('unitPrice')} + ' ' + ${item.get('currency')}"></span>
-                <button class="button-decrease" value="-1">-</button>
-                <span class="quantity" th:text="${item.get('quantity')}"></span>
-                <button class="button-increase" value="1">+</button>
-                <button class="button-delete">DELETE</button>
-                <span class="quantity" th:text="${item.get('subtotalPrice')} + ' ' + ${item.get('currency')}"></span>
+                <a class="product-name item-info" th:href="'/product/?prod_id='+${item.get('id')}" th:text="${item.get('productName')}"></a>
+                <span class="unit-price item-info" th:text="${item.get('unitPrice')} + ' ' + ${item.get('currency')}"></span>
+                <button class="button-decrease item-info" value="-1">-</button>
+                <span class="quantity item-info" th:text="${item.get('quantity')}"></span>
+                <button class="button-increase item-info" value="1">+</button>
+                <button class="button-delete item-info">DELETE</button>
+                <span class="quantity item-info" th:text="${item.get('subtotalPrice')} + ' ' + ${item.get('currency')}"></span>
 
             </div>
 
-            <p>Total <span class="price" style="color:black" th:text="${totalPrice} + 'EUR'"></span></p>
-
         </div>
+            <p class="total-price">Total price:  <span class="price" style="color:black" th:text="${totalPrice} + 'EUR'"></span></p>
     </div>
         <div class="button-container">
             <div class="clear-button-container red-button">
@@ -73,7 +72,7 @@
             </div>
 
             <div class="checkout-button-container green-button">
-                <button id="checkout-button">CHECKOUT</button>
+                <a href="/checkout"><button  id="checkout-button">CHECKOUT</button></a>
             </div>
         </div>
 </div>
