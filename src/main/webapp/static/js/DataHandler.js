@@ -3,7 +3,10 @@ export let dataHandler = {
         const url = "/api/edit-cart"
         return await apiGet(url);
     },
-    deleteLineItem:"",
+    deleteLineItem: async function(id){
+        const url = `/api/edit-item?product_id=${id}`
+        await apiDelete(url);
+    },
     clearCart:"",
     changeLineItemQuantity:""
 
