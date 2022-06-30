@@ -23,6 +23,9 @@ public class EditCartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CartService cartService = new CartService( CartDaoMem.getInstance(), ProductDaoMem.getInstance());
+        String content = cartService.getCartContentAsJson();
+        resp.setContentType("application/json");
+        resp.getWriter().print(content);
 
     }
 
