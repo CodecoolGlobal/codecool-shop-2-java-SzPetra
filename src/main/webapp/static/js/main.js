@@ -8,18 +8,17 @@ function init(){
 
 async function addCartHandler(e){
     const productId = e.currentTarget.id;
-    const url = `/api/edit-cart?product_id=${productId}`
-    console.log(url);
-    const response = await getApiResponse(url);
-    if (!response.ok){
-        console.log("ERROR")
-    }
+    const url = `/api/edit-cart?product_id=${productId}`;
+    const payload = {id:productId}
+    await putApi(url, payload);
 
 }
 
-async function getApiResponse(url){
-    const response = await fetch(url);
-    return response;
+async function putApi(url, payload){
+    const response = await fetch(url, {method:"PUT"});
+    if (!response.ok){
+        console.log("ERROR")
+    }
 }
 
 init();
