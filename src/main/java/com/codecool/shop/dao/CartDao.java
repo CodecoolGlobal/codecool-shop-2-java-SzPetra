@@ -17,4 +17,6 @@ public interface CartDao {
 
     BigDecimal getTotalPrice();
     LineItem getLineItem(Product product);
+
+    String getDataJson();
 }

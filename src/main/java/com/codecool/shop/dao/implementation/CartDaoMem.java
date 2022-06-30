@@ -52,4 +52,9 @@ public class CartDaoMem implements CartDao  {
     public LineItem getLineItem(Product product) {
         return data.getLineItem(product);
     }
+
+    @Override
+    public String getDataJson() {
+        return data.convertProductsToJson();
+    }
 }

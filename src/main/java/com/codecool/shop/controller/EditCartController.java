@@ -21,6 +21,12 @@ import java.io.IOException;
 public class EditCartController extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        CartService cartService = new CartService( CartDaoMem.getInstance(), ProductDaoMem.getInstance());
+
+    }
+
+    @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String queryString = req.getParameter("product_id");
         if(queryString != null){

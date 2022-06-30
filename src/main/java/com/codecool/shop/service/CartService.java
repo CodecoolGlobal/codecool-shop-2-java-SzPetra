@@ -42,13 +42,17 @@ public class CartService {
         return String.valueOf(cartDao.getTotalPrice());
     }
 
-    public String getLintItemById(int id){
+    public String getLintItemByIdAsJson(int id){
         Product productToGet = productDao.find(id);
         LineItem result = cartDao.getLineItem(productToGet);
         if(result == null){
             return null;
         }
         return cartDao.getLineItem(productToGet).toString();
+    }
+
+    public String getCartContentAsJson(){
+        return cartDao.getDataJson();
     }
 
     public void clearCart(){
