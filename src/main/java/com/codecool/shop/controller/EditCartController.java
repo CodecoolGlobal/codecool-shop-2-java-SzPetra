@@ -19,16 +19,16 @@ public class EditCartController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int productId = Integer.parseInt(req.getParameter("product_id"));
-        System.out.println(productId);
+        String queryString = req.getParameter("product_id");
+        if(queryString != null){
+            int productId = Integer.parseInt(queryString);
+            System.out.println(productId);
 
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        CartDao cartDataStore = CartDaoMem.getInstance();
+            ProductDao productDataStore = ProductDaoMem.getInstance();
+            CartDao cartDataStore = CartDaoMem.getInstance();
 
-        Product productToAdd = productDataStore.find(productId);
-
-        cartDataStore.addProduct(productToAdd);
-
+            Product productToAdd = productDataStore.find(productId);
+        }
 
         resp.sendRedirect(req.getContextPath() + "/");
                 

@@ -24,4 +24,8 @@ function deleteHandler(e){
     const id = e.currentTarget.parentElement.parentElement.id;
 }
 
+function clearCartHandler(e){
+
+}
+
 init()
