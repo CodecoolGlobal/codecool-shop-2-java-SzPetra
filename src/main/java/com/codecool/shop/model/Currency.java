@@ -8,13 +8,14 @@ public enum Currency {
     USD(new BigDecimal("0.96")),
     EUR(new BigDecimal("1"));
 
-    private final BigDecimal priceInEuro;
+    private final BigDecimal exchangeRate;
 
     Currency(BigDecimal priceInEuro) {
-        this.priceInEuro = priceInEuro;
+        this.exchangeRate = priceInEuro;
     }
 
-    public BigDecimal getPriceInEuro() {
-        return priceInEuro;
+    public BigDecimal getExchangeRate() {
+        return exchangeRate;
     }
 }
+
