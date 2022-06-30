@@ -93,12 +93,12 @@ body {
 }
 .page-header {
     margin-bottom: 2em;
-    padding: 1em 8em;
+    padding: 1em 4em;
     display: flex;
     flex-direction: row;
     align-items: center;
     color: white;
-    box-shadow: 27px 7px 7px #0c111f;
+    box-shadow: 20px 7px 7px #0c111f;
 }
 .container {
     background-color: var(--darkgrey);
