@@ -1,11 +1,14 @@
 package com.codecool.shop.controller;
 
 import com.codecool.shop.dao.CartDao;
+import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.CartDaoMem;
+import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.service.CartService;
+import com.codecool.shop.service.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,12 +25,8 @@ public class EditCartController extends HttpServlet {
         String queryString = req.getParameter("product_id");
         if(queryString != null){
             int productId = Integer.parseInt(queryString);
-            System.out.println(productId);
-
-            ProductDao productDataStore = ProductDaoMem.getInstance();
-            CartDao cartDataStore = CartDaoMem.getInstance();
-
-            Product productToAdd = productDataStore.find(productId);
+            CartService cartService = new CartService( CartDaoMem.getInstance(), ProductDaoMem.getInstance());
+            cartService.addProductToCart(productId);
             resp.setStatus(200);
         }else{
             resp.sendRedirect(req.getContextPath() + "/");

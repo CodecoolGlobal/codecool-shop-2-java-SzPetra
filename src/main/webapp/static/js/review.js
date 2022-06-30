@@ -4,7 +4,7 @@ function init(){
     addEventHandlers(quantityChangeButtons, quantityChangeHandler)
     addEventHandlers(deleteButtons, deleteHandler)
     const clearCartButton = document.querySelector("#clear-button");
-    clearCartButton.addEventListener("click", (e)=>console.log(e.currentTarget))
+    clearCartButton.addEventListener("click", clearCartHandler)
 }
 
 function addEventHandlers(buttons, eventHandler){
@@ -24,7 +24,17 @@ function deleteHandler(e){
     const id = e.currentTarget.parentElement.parentElement.id;
 }
 
-function clearCartHandler(e){
+async function clearCartHandler(e){
+    const url = "/add-to-cart"
+    const data = await apiDelete(url);
+
+}
+
+async function apiDelete(url){
+    const response = await fetch(url, { method:'DELETE'})
+    if (!response.ok) {
+        console.log("DELETE not ok")
+    }
 
 }
 
