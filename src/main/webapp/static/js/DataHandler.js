@@ -11,7 +11,10 @@ export let dataHandler = {
         const url = "/api/edit-cart";
         await apiDelete(url);
     },
-    changeLineItemQuantity:""
+    changeLineItemQuantity:async function(id, change){
+        const url = `/api/edit-item?product_id=${id}&quantity_change=${change}`
+        await apiPut(url);
+    }
 
 }
 
