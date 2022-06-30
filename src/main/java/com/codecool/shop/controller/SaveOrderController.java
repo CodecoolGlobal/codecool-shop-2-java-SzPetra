@@ -35,16 +35,5 @@ public class SaveOrderController extends HttpServlet {
         String expYear = request.getParameter("expyear");
         String cvv = request.getParameter("cvv");
 
-        System.out.println(userName);
-        System.out.println(email);
-        System.out.println(address);
-        System.out.println(city);
-        System.out.println(state);
-        System.out.println(zipCode);
-        System.out.println(cardName);
-        System.out.println(cardNumber);
-        System.out.println(expMonth);
-        System.out.println(expYear);
-        System.out.println(cvv);
     }
 }
