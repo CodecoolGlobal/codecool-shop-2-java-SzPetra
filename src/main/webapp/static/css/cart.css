@@ -1,0 +1,112 @@
+:root {
+    --darkgrey: #191927;
+    --lightgrey: #232330;
+    --white: #ffffff;
+    --darkblue: #1e384a;
+    --lightblue: #14a4ad;
+    --lightgreen: #287e6e;
+    --darkgreen: #1e363c;
+    --darkorange: #413432;
+    --lightorange: #cb823f;
+    --lightred: #b54549;
+    --darkred: #4e202d;
+    --black: #161616;
+    --lightpink: #FFB6C1
+}
+.cart-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-container {
+    background-color: var(--lightgrey);
+    box-shadow: 7px 7px 7px #0c111f;
+    border-radius: 2em;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 700em;
+    height: 30em;
+    margin-left:9em;
+
+    padding: 2em 5em;
+    justify-content: space-between;
+}
+
+.cart-title-container {
+    background-color: var(--darkblue);
+    color: var(--lightblue);
+
+    align-items: center;
+
+    border-radius: 0.7em;
+    padding: 0.2em .8em;
+
+    width: 10em;
+
+}
+.cart-icon {
+    margin-right: 0.5em;
+}
+.cart-title {
+    margin: 0;
+
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.red-button > button {
+    background-color: var(--darkred);
+    color: var(--lightred);
+    font-weight: bolder;
+    border: 0;
+
+    border-radius: 0.5em;
+    padding: .3em .5em;
+    width: 7em;
+
+    margin-right: 2em;
+}
+.green-button > button {
+    background-color: var(--darkorange);
+    color: var(--lightorange);
+    font-weight: bolder;
+
+    border: 0;
+    border-radius: 0.5em;
+    padding: .3em .5em;
+    width: 7em;
+}
+.button-container {
+    justify-content: flex-end;
+    display: flex;
+}
+.row {
+    margin-bottom: 2em;
+}
+.item-container {
+    display: flex;
+    flex-direction: row;
+}
+.back-to-main-button {
+    background-color: var(--darkgreen);
+    color: var(--lightgreen) !important;
+    font-weight: bolder;
+    text-align: center;
+
+    border: 0;
+    border-radius: 0.7em;
+    padding: .3em .5em;
+    width: 2em;
+    height: 2.5em;
+    margin-right: 2em;
+}
+p {
+    margin: 0;
+}
+.green-text {
+    margin-top: 3px;
+    align-items: center;
+
+}
