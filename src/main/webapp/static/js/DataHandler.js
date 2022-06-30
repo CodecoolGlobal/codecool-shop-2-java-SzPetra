@@ -1,5 +1,8 @@
 export let dataHandler = {
-    getCartContent:"",
+    getCartContent: async function(){
+        const url = "/api/edit-cart"
+        return await apiGet(url);
+    },
     deleteLineItem:"",
     clearCart:"",
     changeLineItemQuantity:""
