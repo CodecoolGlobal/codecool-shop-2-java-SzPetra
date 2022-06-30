@@ -10,6 +10,7 @@ import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.Order;
 import com.codecool.shop.model.User;
 import com.codecool.shop.serialization.OrderSaver;
+import com.codecool.shop.serialization.Serialize;
 import com.codecool.shop.service.CartService;
 import com.codecool.shop.service.ProductService;
 import org.thymeleaf.TemplateEngine;
@@ -36,24 +37,18 @@ public class SaveOrderController extends HttpServlet {
         CartService cartService = new CartService(cartDataStore,productDataStore);
 
         String userName = request.getParameter("firstname");
-        System.out.println(userName);
-
 
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String city = request.getParameter("city");
         String state = request.getParameter("state");
         String zipCode = request.getParameter("zip");
-        String cardName = request.getParameter("cardname");
-        String cardNumber = request.getParameter("cardnumber");
-        String expMonth = request.getParameter("expmonth");
-        String expYear = request.getParameter("expyear");
-        String cvv = request.getParameter("cvv");
 
         User user = new User(userName, email, address, city, state, zipCode);
 
         Order order = new Order(cartService.getCartContent(), cartService.getTotalPriceOfCart(), user, LocalDate.now());
-        System.out.println(order.toString());
-        OrderSaver.saveOrder(order);
+        Serialize.writeObject(order, "demoOrder");
+
+        response.sendRedirect(request.getContextPath() + "/confirm-order");
     }
 }

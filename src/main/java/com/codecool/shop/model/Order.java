@@ -1,12 +1,12 @@
 package com.codecool.shop.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-public class Order {
+
+public class Order implements Serializable {
 
     private List<Map<String, String>> orderDetails;
     private String totalPrice;
