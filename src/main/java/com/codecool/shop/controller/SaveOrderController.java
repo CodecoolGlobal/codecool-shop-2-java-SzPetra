@@ -14,6 +14,7 @@ import com.codecool.shop.service.ProductService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,6 +49,11 @@ public class SaveOrderController extends HttpServlet {
         User user = new User(userName, email, address, city, state, zipCode);
         Order order = new Order(cartService.getCartContent(), Integer.parseInt(cartService.getTotalPriceOfCart()), user, LocalDate.now());
 
-
+        EmailSender emailSender = new EmailSender();
+        try {
+            emailSender.createMessage();
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
