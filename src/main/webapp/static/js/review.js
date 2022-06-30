@@ -25,7 +25,7 @@ function deleteHandler(e){
 }
 
 async function clearCartHandler(e){
-    const url = "/add-to-cart";
+    const url = "/api/edit-cart";
     await apiDelete(url);
 
 }

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/add-to-cart"})
+@WebServlet(urlPatterns = {"/api/edit-cart"})
 public class EditCartController extends HttpServlet {
 
     @Override
