@@ -9,14 +9,28 @@ import java.util.Set;
 public class Order {
 
     private List<Map<String, String>> orderDetails;
-    private int totalPrice;
+    private String totalPrice;
     private User user;
-    private LocalDate orderDate;
+    private String orderDate;
 
-    public Order(List<Map<String, String>> orderDetails, int totalPrice, User user, LocalDate orderDate) {
+    public Order(List<Map<String, String>> orderDetails, String totalPrice, User user, LocalDate orderDate) {
         this.orderDetails = orderDetails;
         this.totalPrice = totalPrice;
         this.user = user;
-        this.orderDate = orderDate;
+        this.orderDate = orderDate.toString();
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderDetails=" + orderDetails +
+                ", totalPrice=" + totalPrice +
+                ", user=" + user +
+                ", orderDate='" + orderDate + '\'' +
+                '}';
     }
 }
