@@ -3,6 +3,8 @@ function init(){
     const deleteButtons = document.querySelectorAll(".button-delete")
     addEventHandlers(quantityChangeButtons, quantityChangeHandler)
     addEventHandlers(deleteButtons, deleteHandler)
+    const clearCartButton = document.querySelector("#clear-button");
+    clearCartButton.addEventListener("click", (e)=>console.log(e.currentTarget))
 }
 
 function addEventHandlers(buttons, eventHandler){
