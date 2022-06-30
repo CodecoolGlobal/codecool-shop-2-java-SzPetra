@@ -37,7 +37,7 @@ public class EditCartController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CartService cartService = new CartService(CartDaoMem.getInstance(),ProductDaoMem.getInstance());
-
+        cartService.clearCart();
     }
 
 }
