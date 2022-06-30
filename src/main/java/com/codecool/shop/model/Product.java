@@ -1,7 +1,7 @@
 package com.codecool.shop.model;
 
 import java.math.BigDecimal;
-import java.util.Currency;
+
 
 public class Product extends BaseModel {
 
@@ -11,9 +11,9 @@ public class Product extends BaseModel {
     private Supplier supplier;
 
 
-    public Product(String name, BigDecimal defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier) {
+    public Product(String name, BigDecimal defaultPrice, Currency currency, String description, ProductCategory productCategory, Supplier supplier) {
         super(name, description);
-        this.setPrice(defaultPrice, currencyString);
+        this.setPrice(defaultPrice, currency);
         this.setSupplier(supplier);
         this.setProductCategory(productCategory);
     }
@@ -38,9 +38,9 @@ public class Product extends BaseModel {
         return String.valueOf(this.defaultPrice) + " " + this.defaultCurrency.toString();
     }
 
-    public void setPrice(BigDecimal price, String currency) {
+    public void setPrice(BigDecimal price, Currency currency) {
         this.defaultPrice = price;
-        this.defaultCurrency = Currency.getInstance(currency);
+        this.defaultCurrency = currency;
     }
 
     public ProductCategory getProductCategory() {

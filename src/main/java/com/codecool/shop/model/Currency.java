@@ -1,18 +1,20 @@
 package com.codecool.shop.model;
 
+import java.math.BigDecimal;
+
 public enum Currency {
 
-    FORINT(0.0025),
-    USD(0.96),
-    EUR(1);
+    FORINT(new BigDecimal("0.0025")),
+    USD(new BigDecimal("0.96")),
+    EUR(new BigDecimal("1"));
 
-    double priceInEuro;
+    private final BigDecimal priceInEuro;
 
-    Currency(double priceInEuro) {
+    Currency(BigDecimal priceInEuro) {
         this.priceInEuro = priceInEuro;
     }
 
-    public double getPriceInEuro() {
+    public BigDecimal getPriceInEuro() {
         return priceInEuro;
     }
 }

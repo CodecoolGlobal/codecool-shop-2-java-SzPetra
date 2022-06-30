@@ -3,7 +3,6 @@ package com.codecool.shop.model;
 import com.google.gson.Gson;
 
 import java.math.BigDecimal;
-import java.util.Currency;
 import java.util.Objects;
 
 public class LineItem {
@@ -61,6 +60,8 @@ public class LineItem {
         LineItem lineItem = (LineItem) o;
         return productId == lineItem.productId;
     }
+
+
 
     @Override
     public int hashCode() {
