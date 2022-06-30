@@ -89,6 +89,7 @@ body {
 }
 .page-title {
     font-size: xx-large;
+    font-weight: bolder;
     align-self: center;
 }
 .page-header {
@@ -304,11 +305,30 @@ body {
 }
 #prof-pic {
     height: 60px;
-    border-radius:.7em;
+    width: 80px;
+    border-radius:.5em;
+    margin-right: 1em;
+}
+.product-description-title {
+    font-weight: bolder;
+    font-size: xx-large;
 }
 .desc-title {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    align-items: baseline;
+    margin-bottom: 1.5em;
+}
+.product-description-details {
+    text-align: justify;
+}
+.description-with-picture {
+    box-shadow: 7px 7px 7px 7px #0c111f;
+    background-color: var(--lightgrey);
+    border-radius: 2em;
+    padding: 2em;
+    margin-top: 1em;
+}
+.column > img {
+    height: 12em;
 }

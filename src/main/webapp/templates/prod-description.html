@@ -37,10 +37,11 @@
         <div class="description-with-picture">
             <div class="description" th:each="prod,iterStat : ${product}">
                 <div class="desc-title">
-                    <h4 th:text="${prod.name}">Product name</h4>
-                    <img id="prof-pic" th:attr="src='/static/img/prof_' + ${prod.id} + '.jpg'" alt="">
+                    <!--img id="prof-pic" th:attr="src='/static/img/prof_' + ${prod.id} + '.jpg'" alt=""-->
+                    <h4 class="product-description-title" th:text="${prod.name}">Product name</h4>
+
                 </div>
-                <p th:text="${prod.description}">Product description... </p>
+                <p class="product-description-details" th:text="${prod.description}">Product description... </p>
                 <p th:text="${prod.getPrice()}">100 USD</p>
                 <a th:id = "${prod.id}" class=" btn btn-success">Add to cart</a>
             </div>
