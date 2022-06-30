@@ -14,7 +14,7 @@ async function addCartHandler(e){
 
 }
 
-async function putApi(url, payload){
+async function putApi(url){
     const response = await fetch(url, {method:"PUT"});
     if (!response.ok){
         console.log("ERROR")
