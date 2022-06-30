@@ -2,8 +2,10 @@ package com.codecool.shop.service;
 
 import com.codecool.shop.dao.CartDao;
 import com.codecool.shop.dao.ProductDao;
+import com.codecool.shop.model.Cart;
 import com.codecool.shop.model.LineItem;
 import com.codecool.shop.model.Product;
+import com.codecool.shop.model.User;
 
 import java.util.*;
 
@@ -47,6 +49,10 @@ public class CartService {
             return null;
         }
         return cartDao.getLineItem(productToGet).toString();
+    }
+
+    public void clearCart(){
+        cartDao.add( new Cart(new User()));
     }
 
     private Map<String, String> createItemDetails(LineItem item){
