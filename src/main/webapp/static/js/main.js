@@ -1,3 +1,5 @@
+import {dataHandler} from "./DataHandler";
+
 function init(){
     const addCartButtonContainers = document.querySelectorAll(".card-button-container");
     for(let container of addCartButtonContainers){
@@ -8,17 +10,9 @@ function init(){
 
 async function addCartHandler(e){
     const productId = e.currentTarget.id;
-    const url = `/api/edit-cart?product_id=${productId}`;
-    const payload = {id:productId}
-    await putApi(url, payload);
+    await dataHandler.addToCart(productId);
 
 }
 
-async function putApi(url){
-    const response = await fetch(url, {method:"PUT"});
-    if (!response.ok){
-        console.log("ERROR")
-    }
-}
 
 init();
