@@ -14,6 +14,10 @@ export let dataHandler = {
     changeLineItemQuantity:async function(id, change){
         const url = `/api/edit-item?product_id=${id}&quantity_change=${change}`
         await apiPut(url);
+    },
+    getLineItem: async function(id){
+        const url = `/api/edit-item?product_id=${id}`
+        return await apiGet()
     }
 
 }
