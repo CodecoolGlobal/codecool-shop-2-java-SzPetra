@@ -30,6 +30,7 @@ public class CartDaoMem implements CartDao  {
 
     @Override
     public void remove(Product product) {
+        data.removeProduct(product);
     }
 
     @Override

@@ -48,7 +48,7 @@ public class CartService {
         if(result == null){
             return null;
         }
-        return cartDao.getLineItem(productToGet).toString();
+        return result.toString();
     }
 
     public String getCartContentAsJson(){

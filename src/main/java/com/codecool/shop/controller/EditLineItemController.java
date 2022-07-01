@@ -39,11 +39,21 @@ public class EditLineItemController extends HttpServlet {
             int quantityChange = Integer.parseInt(quantityString);
             CartService cartService = new CartService( CartDaoMem.getInstance(), ProductDaoMem.getInstance());
             cartService.changeLineItemQuantityBy(productId,quantityChange);
+        }else{
+            resp.sendRedirect(req.getContextPath() + "/");
         }
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
+        String queryString = req.getParameter("product_id");
+        if(queryString != null){
+            int productId = Integer.parseInt(queryString);
+            CartService cartService = new CartService( CartDaoMem.getInstance(), ProductDaoMem.getInstance());
+            cartService.removeProductFromCart(productId);
+            resp.setStatus(200);
+        }else{
+            resp.sendRedirect(req.getContextPath() + "/");
+        }
     }
 }
