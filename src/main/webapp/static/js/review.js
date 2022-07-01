@@ -1,3 +1,5 @@
+import {dataHandler} from "./DataHandler";
+
 function init(){
     const quantityChangeButtons = document.querySelectorAll(".button-quantity-change")
     const deleteButtons = document.querySelectorAll(".button-delete")
@@ -13,11 +15,12 @@ function addEventHandlers(buttons, eventHandler){
     }
 }
 
-function quantityChangeHandler(e){
+async function quantityChangeHandler(e){
     const changeValue = e.currentTarget.value;
     const id = e.currentTarget.parentElement.parentElement.id;
-    console.log(id);
-    console.log(changeValue);
+    await dataHandler.changeLineItemQuantity(id, changeValue);
+    const changedItem = dataHandler.getLineItem(id);
+    console.log(changedItem);
 }
 
 function deleteHandler(e){
@@ -30,19 +33,6 @@ async function clearCartHandler(e){
 
 }
 
-async function apiDelete(url){
-    const response = await fetch(url, { method:'DELETE'})
-    if (!response.ok) {
-        console.log("DELETE not ok")
-    }
 
-}
-
-async function apiGet(url){
-    const response = await fetch(url);
-    if(response.ok){
-        return await response.json();
-    }
-}
 
 init()
