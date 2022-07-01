@@ -2,47 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="module" src="/static/js/review.js" defer ></script>
-    <script type="module" src="/static/js/DataHandler.js" defer ></script>
+    <title>My Cart</title>
+
+    <!--fontawsome -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/4e97a990ca.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/cart.css" />
+    <script src="/static/js/main.js" defer ></script>
+    <script src="/static/js/DataHandler.js" defer ></script>
 </head>
 <body>
-<div class="row">
-    <div class="col-75">
-        <div class="col-25">
-            <div class="container">
-                <h4>Cart
-                    <span class="price" style="color:black">
-                  <i class="fa fa-shopping-cart"></i>
-                  <b>4</b>
-                </span>
-                </h4>
-                <div class="clear-button-container">
-                    <button id="clear-button">CLEAR</button>
-                </div>
-                <div th:each="item : ${cartContent}">
-                    <div th:id="${item.get('id')}">
-                        <p>
-                            <a th:href="'/product/?prod_id='+${item.get('id')}" th:text="${item.get('productName')}"></a>
-                            <span class="unit-price" th:text="${item.get('unitPrice')} + ' ' + ${item.get('currency')}"></span>
-                            <button class="button-quantity-change" value="-1">-</button>
-                            <span class="quantity" th:text="${item.get('quantity')}"></span>
-                            <button class="button-quantity-change" value="1">+</button>
-                            <button class="button-delete">DELETE</button>
-                            <span class="quantity" th:text="${item.get('subtotalPrice')} + ' ' + ${item.get('currency')}"></span>
-                            <br>
-                        </p>
-                    </div>
-                </div>
-                <hr>
-                <p>Total <span class="price" style="color:black" th:text="${totalPrice} + 'EUR'"><b></b></span></p>
+
+<div th:replace="header.html :: copy"></div>
+
+<div class="container">
+
+
+    <div class="cart-container">
+        <div class="cart-header">
+            <a href="/" class="back-to-main-button green-text"><p class="green-text"><</p></a>
+            <div class="cart-title-container row">
+
+                <i class="fa fa-shopping-cart cart-icon"></i>
+                <p class="cart-title">Cart</p>
+                <!--b>4</b-->
+
             </div>
         </div>
+
+        <div class="row cart-items-container">
+
+        <div class="cart-items" th:each="item : ${cartContent}">
+            <div class="item-container" th:id="${item.get('id')}">
+                <a class="product-name item-info" th:href="'/product/?prod_id='+${item.get('id')}" th:text="${item.get('productName')}"></a>
+                <span class="unit-price item-info" th:text="${item.get('unitPrice')} + ' ' + ${item.get('currency')}"></span>
+                <button class="button-decrease item-info" value="-1">-</button>
+                <span class="quantity item-info" th:text="${item.get('quantity')}"></span>
+                <button class="button-increase item-info" value="1">+</button>
+                <button class="button-delete item-info">DELETE</button>
+                <span class="quantity item-info" th:text="${item.get('subtotalPrice')} + ' ' + ${item.get('currency')}"></span>
+
+            </div>
+
+        </div>
+            <p class="total-price">Total price:  <span class="price" style="color:black" th:text="${totalPrice} + 'EUR'"></span></p>
     </div>
-</div>
-<div class="checkout-button-container">
-    <button id="checkout-button">CHECKOUT</button>
+        <div class="button-container">
+            <div class="clear-button-container red-button">
+                <button id="clear-button">CLEAR</button>
+            </div>
+
+            <div class="checkout-button-container green-button">
+                <a href="/checkout"><button  id="checkout-button">CHECKOUT</button></a>
+            </div>
+        </div>
 </div>
 
+
+<div class="footer" th:replace="footer.html :: copy"></div>
+</div>
 </body>
 </html>

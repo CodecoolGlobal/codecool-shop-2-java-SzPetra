@@ -44,8 +44,9 @@ public class Cart {
     public BigDecimal getFullPrice(){
         BigDecimal result = new BigDecimal(0);
         for(LineItem item: products){
-            BigDecimal price = item.getTotalPrice();
-            result = result.add(price);
+            BigDecimal priceInOriginalCurrency = item.getTotalPrice();
+            BigDecimal priceInEuro = priceInOriginalCurrency.multiply(item.getDefaultCurrency().getExchangeRate());
+            result = result.add(priceInEuro);
         }
         return result;
     }

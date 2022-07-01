@@ -17,14 +17,14 @@ function addEventHandlers(buttons, eventHandler){
 
 async function quantityChangeHandler(e){
     const changeValue = e.currentTarget.value;
-    const id = e.currentTarget.parentElement.parentElement.id;
+    const id = e.currentTarget.parentElement.id;
     await dataHandler.changeLineItemQuantity(id, changeValue);
     const changedItem = await dataHandler.getLineItem(id);
     console.log(changedItem);
 }
 
 async function deleteHandler(e) {
-    const id = e.currentTarget.parentElement.parentElement.id;
+    const id = e.currentTarget.parentElement.id;
     await dataHandler.deleteLineItem(id);
     const updatedCart = await dataHandler.getCartContent();
     console.log(updatedCart);

@@ -22,6 +22,4 @@ public class SupplierService {
         Supplier supplier = supplierDao.find(supplierId);
         return productDao.getBy(supplier);
     }
-
-
 }
