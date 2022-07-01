@@ -19,20 +19,20 @@ async function quantityChangeHandler(e){
     const changeValue = e.currentTarget.value;
     const id = e.currentTarget.parentElement.parentElement.id;
     await dataHandler.changeLineItemQuantity(id, changeValue);
-    const changedItem = dataHandler.getLineItem(id);
+    const changedItem = await dataHandler.getLineItem(id);
     console.log(changedItem);
 }
 
 async function deleteHandler(e) {
     const id = e.currentTarget.parentElement.parentElement.id;
     await dataHandler.deleteLineItem(id);
-    const updatedCart = dataHandler.getCartContent();
+    const updatedCart = await dataHandler.getCartContent();
     console.log(updatedCart);
 }
 
 async function clearCartHandler(e){
     await dataHandler.clearCart();
-    const cart = dataHandler.getCartContent();
+    const cart = await dataHandler.getCartContent();
     console.log(cart);
 }
 
