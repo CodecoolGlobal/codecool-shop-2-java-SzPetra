@@ -1,4 +1,4 @@
-import {dataHandler} from "./DataHandler";
+import {dataHandler} from "./DataHandler.js";
 
 function init(){
     const addCartButtonContainers = document.querySelectorAll(".card-button-container");
