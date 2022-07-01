@@ -1,6 +1,10 @@
 package com.codecool.shop.controller;
 
 
+import com.codecool.shop.dao.implementation.CartDaoMem;
+import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.service.CartService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +17,17 @@ public class EditLineItemController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        String queryString = req.getParameter("product_id");
+        if(queryString != null){
+            int productId = Integer.parseInt(queryString);
+            CartService cartService = new CartService( CartDaoMem.getInstance(), ProductDaoMem.getInstance());
+            String jsonItem = cartService.getLintItemByIdAsJson(productId);
+            resp.setStatus(200);
+            resp.setContentType("application/json");
+            resp.getWriter().print(jsonItem);
+        }else{
+            resp.sendRedirect(req.getContextPath() + "/");
+        }
     }
 
     @Override
