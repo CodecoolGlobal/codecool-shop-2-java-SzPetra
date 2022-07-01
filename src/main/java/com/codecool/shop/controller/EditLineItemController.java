@@ -32,7 +32,14 @@ public class EditLineItemController extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp);
+        String idString = req.getParameter("product_id");
+        String quantityString = req.getParameter("quantity_change");
+        if(idString != null && quantityString != null){
+            int productId = Integer.parseInt(idString);
+            int quantityChange = Integer.parseInt(quantityString);
+            CartService cartService = new CartService( CartDaoMem.getInstance(), ProductDaoMem.getInstance());
+            cartService.
+        }
     }
 
     @Override

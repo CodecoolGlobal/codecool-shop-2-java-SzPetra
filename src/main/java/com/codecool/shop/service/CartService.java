@@ -70,5 +70,11 @@ public class CartService {
         return itemDetails;
     }
 
+    public void changeLineItemQuantityBy(int id, int quantity){
+        Product product = productDao.find(id);
+        LineItem item = cartDao.getLineItem(product);
+        item.setQuantity(item.getQuantity()+quantity);
+    }
+
 
 }
