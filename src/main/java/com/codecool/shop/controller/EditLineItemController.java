@@ -38,7 +38,7 @@ public class EditLineItemController extends HttpServlet {
             int productId = Integer.parseInt(idString);
             int quantityChange = Integer.parseInt(quantityString);
             CartService cartService = new CartService( CartDaoMem.getInstance(), ProductDaoMem.getInstance());
-            cartService.
+            cartService.changeLineItemQuantityBy(productId,quantityChange);
         }
     }
 
