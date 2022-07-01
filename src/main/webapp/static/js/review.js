@@ -23,8 +23,11 @@ async function quantityChangeHandler(e){
     console.log(changedItem);
 }
 
-function deleteHandler(e){
+async function deleteHandler(e) {
     const id = e.currentTarget.parentElement.parentElement.id;
+    await dataHandler.deleteLineItem(id);
+    const updatedCart = dataHandler.getCartContent();
+    console.log(updatedCart);
 }
 
 async function clearCartHandler(e){
