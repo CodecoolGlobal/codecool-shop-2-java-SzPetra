@@ -10,8 +10,8 @@ import java.util.Set;
 public interface CartDao {
 
     void add(Cart cart);
-    void remove(Product product);
-    void addProduct(Product product);
+    void decreaseByOne(Product product);
+    void increaseByOne(Product product);
 
     Set<LineItem> getAll();
 

@@ -29,12 +29,12 @@ public class CartDaoMem implements CartDao  {
 
 
     @Override
-    public void remove(Product product) {
+    public void decreaseByOne(Product product) {
         data.removeProduct(product);
     }
 
     @Override
-    public void addProduct(Product product) {
+    public void increaseByOne(Product product) {
         data.addProduct(product);
     }
 

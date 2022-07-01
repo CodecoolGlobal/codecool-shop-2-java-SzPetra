@@ -21,12 +21,12 @@ public class CartService {
 
     public void addProductToCart(int id){
         Product productToAdd = productDao.find(id);
-        cartDao.addProduct(productToAdd);
+        cartDao.increaseByOne(productToAdd);
     }
 
     public void removeProductFromCart(int id){
         Product productToRemove = productDao.find(id);
-        cartDao.remove(productToRemove);
+        cartDao.decreaseByOne(productToRemove);
     }
 
     public List<Map<String, String>> getCartContent(){
