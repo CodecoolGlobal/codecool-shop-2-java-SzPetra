@@ -17,7 +17,7 @@ export let dataHandler = {
     },
     getLineItem: async function(id){
         const url = `/api/edit-item?product_id=${id}`
-        return await apiGet()
+        return await apiGet(url)
     },
     addToCart: async function(id){
         const url = `/api/edit-cart?product_id=${id}`

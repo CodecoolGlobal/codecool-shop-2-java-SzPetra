@@ -1,12 +1,14 @@
 import {dataHandler} from "./DataHandler.js";
 
 function init(){
-    const quantityChangeButtons = document.querySelectorAll(".button-quantity-change")
-    const deleteButtons = document.querySelectorAll(".button-delete")
-    addEventHandlers(quantityChangeButtons, quantityChangeHandler)
-    addEventHandlers(deleteButtons, deleteHandler)
+    const increaseQuantityButtons = document.querySelectorAll(".button-increase");
+    const decreaseQuantityButtons = document.querySelectorAll(".button-decrease");
+    const deleteButtons = document.querySelectorAll(".button-delete");
+    addEventHandlers(increaseQuantityButtons, quantityChangeHandler);
+    addEventHandlers(decreaseQuantityButtons, quantityChangeHandler);
+    addEventHandlers(deleteButtons, deleteHandler);
     const clearCartButton = document.querySelector("#clear-button");
-    clearCartButton.addEventListener("click", clearCartHandler)
+    clearCartButton.addEventListener("click", clearCartHandler);
 }
 
 function addEventHandlers(buttons, eventHandler){
@@ -17,7 +19,9 @@ function addEventHandlers(buttons, eventHandler){
 
 async function quantityChangeHandler(e){
     const changeValue = e.currentTarget.value;
+    console.log(changeValue);
     const id = e.currentTarget.parentElement.id;
+    console.log(id);
     await dataHandler.changeLineItemQuantity(id, changeValue);
     const changedItem = await dataHandler.getLineItem(id);
     console.log(changedItem);
