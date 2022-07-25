@@ -1,11 +1,13 @@
-function updateItem(item){
+export let contentBuilder = {
+    updateItem : function(item){
 
-}
+                },
 
-function updateCart(Cart){
+    updateCart : function(Cart) {
 
-}
+                },
 
-function deleteCart(){
+    deleteCart : function() {
 
+                }
 }
