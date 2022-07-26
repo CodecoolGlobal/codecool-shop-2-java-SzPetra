@@ -1,4 +1,5 @@
 import {dataHandler} from "./DataHandler.js";
+import {contentBuilder} from "./contentBuilder.js";
 
 function init(){
     const increaseQuantityButtons = document.querySelectorAll(".button-increase");
@@ -37,6 +38,7 @@ async function deleteHandler(e) {
 async function clearCartHandler(e){
     await dataHandler.clearCart();
     const cart = await dataHandler.getCartContent();
+    contentBuilder.deleteCart();
     console.log(cart);
 }
 
