@@ -19,23 +19,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/product/"})
-public class ProductController extends HttpServlet {
+@WebServlet(urlPatterns = {"/supplier/"})
+public class SupplierController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
-        int productId = Integer.parseInt(request.getParameter("prod_id"));
+        int supplierId = Integer.parseInt(request.getParameter("supplier"));
 
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
+
+
+        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
+        SupplierService supplierService = new SupplierService(productDataStore, supplierDataStore);
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
         WebContext context = new WebContext(request, resp, request.getServletContext());
-        context.setVariable("product", productService.getProductForProductId(productId));
 
-        engine.process("prod-description.html", context, resp.getWriter());
+        context.setVariable("products", supplierService.getProductsBySupplier(supplierId));
 
+        engine.process("product/index.html", context, resp.getWriter());
     }
 }
-

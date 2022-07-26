@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/checkout.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+
+  <script src="/static/js/checkout.js" defer></script>
+
+  <!--fontawsome -->
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/4e97a990ca.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div th:replace="header.html :: copy"></div>
+
+
+<div class="row">
+
+  <div class="col-25">
+    <div class="row cart-items-container">
+
+    <div class="cart-items" th:each="item : ${cartcontent}">
+      <div class="item-container" th:id="${item.get('id')}">
+        <a class="product-name item-info" th:href="'/product/?prod_id='+${item.get('id')}" th:text="${item.get('productName')}"></a>
+        <span class="quantity item-info" th:text="${item.get('subtotalPrice')} + ' ' + ${item.get('currency')}"></span>
+
+      </div>
+
+    </div>
+      <p class="total-price">Total <span th:text="${fullPrice}"></span></p>
+    </div>
+
+
+
+  <div class="col-75">
+    <div class="container">
+      <form action="/api/save/order" method="post">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname" class="red-text red-background"><i class="fa fa-user red-text"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <label for="email" class="orange-text orange-background"><i class="fa fa-envelope orange-text"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <label for="adr" class="green-text green-background"><i class="fa fa-address-card-o green-text"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <label for="city" class="blue-text blue-background"><i class="fa fa-institution blue-text"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="New York">
+
+            <div class="row sub-row">
+              <div>
+                <label for="state" class="state-label blue-text">State</label>
+                <input type="text" id="state" name="state" placeholder="NY">
+              </div>
+              <div>
+                <label for="zip" class="zip-label blue-text">Zip Code</label>
+                <input type="text" id="zip" name="zip" placeholder="10001">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50 payment">
+            <h3>Payment</h3>
+            <div class="icon-container">
+              <span class="accepted-cards">Accepted Cards: </span>
+              <i class="fa fa-cc-visa card-icon"></i>
+              <i class="fa fa-cc-amex card-icon"></i>
+              <i class="fa fa-cc-mastercard card-icon"></i>
+              <i class="fa fa-cc-discover card-icon"></i>
+            </div>
+
+            <label for="cname" class="red-background red-text">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+            <label for="ccnum" class="orange-background orange-text">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth" class="green-background green-text">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+
+            <div class="row">
+
+              <label for="expyear" class="blue-text blue-background">Exp Year</label>
+              <input type="text" id="expyear" name="expyear" placeholder="2018">
+
+
+              <label for="cvv" class="red-background red-text">CVV</label>
+              <input type="text" id="cvv" name="cvv" placeholder="352">
+
+            </div>
+          </div>
+
+        </div>
+        <!--label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+        </label-->
+        <input id="checkout-btn" type="submit" value="Continue to checkout" class="btn">
+      </form>
+    </div>
+  </div>
+
+
+     </div>
+</div>
+
+<div class="footer" th:replace="footer.html :: copy"></div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/4e97a990ca.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <script src="/static/js/main.js" defer ></script>
+</head>
+<body>
+    <div th:replace="header.html :: copy"></div>
+
+    <div class="container">
+        <div th:replace="navbar.html::copy"></div>
+
+        <div class="description-with-picture">
+            <div class="description" th:each="prod,iterStat : ${product}">
+                <div class="desc-title">
+                    <!--img id="prof-pic" th:attr="src='/static/img/prof_' + ${prod.id} + '.jpg'" alt=""-->
+                    <h4 class="product-description-title" th:text="${prod.name}">Product name</h4>
+
+                </div>
+                <p class="product-description-details" th:text="${prod.description}">Product description... </p>
+                <p th:text="${prod.getPrice()}">100 USD</p>
+                <a th:href="'/add-to-cart/?prod_id=' + ${prod.id}" th:id = "${prod.id}" class=" btn btn-success">Add to cart</a>
+            </div>
+
+            <div class="pic-row">
+                <div class="column">
+                    <img src="/static/img/balaton_2.jpg" alt="Lake Balaton 2" style="width:100%">
+                </div>
+                <div class="column">
+                    <img src="/static/img/balaton_3.jpg" alt="Lake Balaton 3" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="footer.html :: copy"></div>
+</body>
+</html>

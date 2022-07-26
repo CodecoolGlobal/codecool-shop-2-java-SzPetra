@@ -1,0 +1,152 @@
+:root {
+    --darkgrey: #191927;
+    --lightgrey: #232330;
+    --white: #ffffff;
+    --darkblue: #1e384a;
+    --lightblue: #14a4ad;
+    --lightgreen: #287e6e;
+    --darkgreen: #1e363c;
+    --darkorange: #413432;
+    --lightorange: #cb823f;
+    --lightred: #b54549;
+    --darkred: #4e202d;
+    --black: #161616;
+    --lightpink: #FFB6C1
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 4em 2em 4em;
+    color: var(--white);
+}
+
+.col-25 {
+    flex: 25%;
+}
+
+/* billing address information */
+.col-50 {
+    flex: 50%;
+    background-color: var(--lightgrey);
+    box-shadow: 7px 7px 7px #0c111f;
+    width: 100%;
+    margin-bottom: 2em;
+    border-radius: 2em;
+
+}
+.total-price {
+    margin-left: 2em;
+}
+.col-75 {
+    flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+    padding: 1em 2em;
+}
+
+.container {
+
+}
+input {
+    background-color: var(--lightgrey);
+
+}
+
+input[type=text] {
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 0.6em;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+.btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+label {
+    padding: 0.6em 1em;
+    width: 10em;
+    border-radius: 0.6em;
+    margin-bottom: 1em;
+    box-shadow: 4px 4px 4px rgba(12, 17, 31, 0.3);
+}
+
+.red-text{
+    color: var(--lightred);
+}
+.orange-text {
+    color: var(--lightorange);
+}
+.blue-text {
+    color: var(--lightblue);
+}
+.green-text {
+    color: var(--lightgreen);
+}
+.red-background {
+    background-color: var(--darkred);
+}
+.orange-background {
+    background-color: var(--darkorange);
+}
+.green-background {
+    background-color:  var(--darkgreen);
+}
+.blue-background {
+    background-color: var(--darkblue);
+}
+.sub-row {
+    display: flex;
+    flex-direction: column;
+}
+.state-label, .zip-label {
+    box-shadow: none;
+    font-weight: bolder;
+    margin-bottom: .5em;
+}
+.card-icon {
+    margin-left: .5em;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+    .col-25 {
+        margin-bottom: 20px;
+    }
+}
