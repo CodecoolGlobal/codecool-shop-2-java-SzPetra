@@ -1,7 +1,7 @@
 export let contentBuilder = {
     updateItem : function(item){
                     const lineItem = document.querySelector(`#${item["id"]}`);
-
+                    lineItem.querySelector(".quantity item-info").textContent = item["quantity"];
 
                 },
 

@@ -1,6 +1,7 @@
 package com.codecool.shop.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -71,6 +72,8 @@ public class LineItem {
     @Override
     public String toString() {
         Gson gson = new Gson();
-        return gson.toJson(this);
+        JsonElement jsonElement = gson.toJsonTree(this);
+        jsonElement.getAsJsonObject().addProperty("subTotal", getTotalPrice().intValue());
+        return gson.toJson(jsonElement);
     }
 }
