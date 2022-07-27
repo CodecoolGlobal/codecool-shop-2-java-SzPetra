@@ -1,19 +1,21 @@
-package com.codecool.shop.dao.implementation;
+package com.codecool.shop.dao.jdbc;
 
 import com.codecool.shop.dao.UserDao;
-import com.codecool.shop.model.Supplier;
 import com.codecool.shop.model.User;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.sql.DataSource;
 
-public class UserDaoMem implements UserDao {
+public class UserDaoJdbc implements UserDao {
 
-    private List<User> users = new ArrayList<>();
+    private DataSource dataSource;
+
+    public UserDaoJdbc(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Override
     public void add(User user, String hashPassword) {
-        users.add(user);
+
     }
 
     @Override
@@ -26,4 +28,3 @@ public class UserDaoMem implements UserDao {
 
     }
 }
-

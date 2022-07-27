@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserDao {
 
-    void add(User user);
+    void add(User user, String hashPassword);
     User find(String email);
     void remove(int id);
 
