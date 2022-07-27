@@ -6,10 +6,7 @@ import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 public class ProductDaoJdbc implements ProductDao {
@@ -32,6 +29,12 @@ public class ProductDaoJdbc implements ProductDao {
             prepStatement.setString(4, product.getDescription());
             prepStatement.setBigDecimal(5, product.getPrice());
             prepStatement.setString(6, product.getDefaultCurrency().getStringRepresentation());
+
+            prepStatement.executeUpdate();
+
+            ResultSet rs = prepStatement.getGeneratedKeys();
+            rs.next();
+            product.setId(rs.getInt(1));
         } catch (SQLException e) {
             throw new RuntimeException("Could not add product to database");
         }
