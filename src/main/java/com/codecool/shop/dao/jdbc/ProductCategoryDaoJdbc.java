@@ -65,7 +65,15 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
 
     @Override
     public void remove(int id) {
-
+        try(Connection con = dataSource.getConnection()) {
+            String query = "DELETE FROM categories " +
+                    "WHERE id = ?";
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            prepStatement.setInt(1, id);
+            prepStatement.executeLargeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not find product with given ID");
+        }
     }
 
     @Override
