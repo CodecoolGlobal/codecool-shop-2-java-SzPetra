@@ -30,7 +30,7 @@ public class UserDaoJdbc implements UserDao {
             rs.next();
             user.setId(rs.getInt(1));
         } catch (SQLException e) {
-            throw new RuntimeException("Could not add product to database");
+            throw new RuntimeException("Could not add user to database");
         }
     }
 
@@ -53,7 +53,7 @@ public class UserDaoJdbc implements UserDao {
             result.setId(user_id);
             return result;
         } catch (SQLException e) {
-            throw new RuntimeException("Could not find product with given ID");
+            throw new RuntimeException("Could not find user with given email");
         }
 }
 
