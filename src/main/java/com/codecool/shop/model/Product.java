@@ -34,8 +34,11 @@ public class Product extends BaseModel {
         this.defaultCurrency = defaultCurrency;
     }
 
-    public String getPrice() {
+    public String getPriceInString() {
         return String.valueOf(this.defaultPrice) + " " + this.defaultCurrency.toString();
+    }
+    public BigDecimal getPrice() {
+        return this.defaultPrice;
     }
 
     public void setPrice(BigDecimal price, Currency currency) {
