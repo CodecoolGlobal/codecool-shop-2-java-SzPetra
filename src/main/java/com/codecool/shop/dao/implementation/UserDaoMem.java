@@ -25,9 +25,5 @@ public class UserDaoMem implements UserDao {
     public void remove(int id) {
 
     }
-
-    @Override
-    public List<Supplier> getAll() {
-        return null;
-    }
 }
+
