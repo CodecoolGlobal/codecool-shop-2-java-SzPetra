@@ -86,14 +86,14 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             if(!rs.next()){
                 return null;
             }
-            List<ProductCategory> result = new ArrayList<>()
+            List<ProductCategory> result = new ArrayList<>();
             while(!rs.next()){
                 int id = rs.getInt(1);
                 result.add(find(id));
             }
             return result;
         }catch( SQLException e){
-            throw new RuntimeException()
+            throw new RuntimeException();
         }
     }
 }
