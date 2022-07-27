@@ -9,6 +9,7 @@ import com.codecool.shop.model.Supplier;
 import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductCategoryDaoJdbc implements ProductCategoryDao {
@@ -72,12 +73,27 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             prepStatement.setInt(1, id);
             prepStatement.executeLargeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException("Could not find product with given ID");
+            throw new RuntimeException("Could not find category with given ID");
         }
     }
 
     @Override
     public List<ProductCategory> getAll() {
-        return null;
+        try(Connection con = dataSource.getConnection()){
+            String query = "SELECT id FROM categories ";
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            ResultSet rs = prepStatement.executeQuery();
+            if(!rs.next()){
+                return null;
+            }
+            List<ProductCategory> result = new ArrayList<>()
+            while(!rs.next()){
+                int id = rs.getInt(1);
+                result.add(find(id));
+            }
+            return result;
+        }catch( SQLException e){
+            throw new RuntimeException()
+        }
     }
 }
