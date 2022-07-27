@@ -44,7 +44,7 @@ public class SaveOrderController extends HttpServlet {
         String state = request.getParameter("state");
         String zipCode = request.getParameter("zip");
 
-        User user = new User(userName, email, address, city, state, zipCode);
+        User user = new User(userName, email, address);
 
         Order order = new Order(cartService.getCartContent(), cartService.getTotalPriceOfCart(), user, LocalDate.now());
         Serialize.writeObject(order, "demoOrder");
