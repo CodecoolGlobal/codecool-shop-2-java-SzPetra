@@ -51,14 +51,12 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             if(!rs.next()){
                 return null;
             }
-            int id = rs.getInt(1);
+            int category_id = rs.getInt(1);
             String name = rs.getString(2);
             String description = rs.getString(3);
             String department = rs.getString(4);
-
             ProductCategory result =  new ProductCategory(name, department, description);
-            result.setId(id);
-
+            result.setId(category_id);
             return result;
         } catch (SQLException e) {
             throw new RuntimeException("Could not find product with given ID");
