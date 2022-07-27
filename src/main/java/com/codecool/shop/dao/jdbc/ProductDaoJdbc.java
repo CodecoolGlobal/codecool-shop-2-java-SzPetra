@@ -1,20 +1,29 @@
 package com.codecool.shop.dao.jdbc;
 
+import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
+import com.codecool.shop.dao.SupplierDao;
+import com.codecool.shop.model.Currency;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
+import jdk.jfr.Category;
 
 import javax.sql.DataSource;
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.List;
 
 public class ProductDaoJdbc implements ProductDao {
 
     private DataSource dataSource;
+    private ProductCategoryDao prodCatDao;
+    private SupplierDao supDao;
 
-    public ProductDaoJdbc(DataSource dataSource) {
+    public ProductDaoJdbc(DataSource dataSource, ProductCategoryDao prodCatDao, SupplierDao supDao) {
         this.dataSource = dataSource;
+        this.prodCatDao = prodCatDao;
+        this.supDao = supDao;
     }
 
     @Override
@@ -38,12 +47,38 @@ public class ProductDaoJdbc implements ProductDao {
         } catch (SQLException e) {
             throw new RuntimeException("Could not add product to database");
         }
-
     }
 
     @Override
     public Product find(int id) {
-        return null;
+        try(Connection con = dataSource.getConnection()) {
+            String query = "SELECT * FROM products" +
+                    "WHERE id = ?";
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            prepStatement.setInt(1, id);
+
+            ResultSet rs = prepStatement.executeQuery();
+            if(!rs.next()){
+                return null;
+            }
+            String name = rs.getString(4);
+            BigDecimal price = rs.getBigDecimal(6);
+            String currency = rs.getString(7);
+            String description = rs.getString(5);
+            int category_id = rs.getInt(3);
+            int supplier_id = rs.getInt(2);
+            int product_id = rs.getInt(1);
+
+            ProductCategory category = prodCatDao.find(category_id);
+            Supplier supplier = supDao.find(supplier_id);
+
+            Product newProd =  new Product(name, price, Currency.EUR, description, category, supplier);
+            newProd.setId(product_id);
+
+            return newProd;
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not find product with given ID");
+        }
     }
 
     @Override
