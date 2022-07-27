@@ -1,6 +1,7 @@
 package com.codecool.shop.dao.jdbc;
 
 import com.codecool.shop.dao.UserDao;
+import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.User;
 
 import javax.sql.DataSource;
@@ -34,9 +35,27 @@ public class UserDaoJdbc implements UserDao {
     }
 
     @Override
-    public User find(String email) {
-        return null;
-    }
+    public User find(String email){
+        try(Connection con = dataSource.getConnection()) {
+            String query = "SELECT * FROM users " +
+                    "WHERE email = ?";
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            prepStatement.setString(1, email);
+
+            ResultSet rs = prepStatement.executeQuery();
+            if(!rs.next()){
+                return null;
+            }
+            int user_id = rs.getInt(1);
+            String firstName = rs.getString(2);
+            String lastName = rs.getString(3);
+            User result = new User(firstName, lastName, email);
+            result.setId(user_id);
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not find product with given ID");
+        }
+}
 
     @Override
     public void remove(int id) {
