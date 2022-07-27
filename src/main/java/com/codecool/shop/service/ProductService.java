@@ -26,7 +26,6 @@ public class ProductService{
     }
 
     public Product getProductForProductId(int productId) {
-        var product = productDao.find(productId);
-        return productDao.getBy(product);
+        return productDao.find(productId);
     }
 }

@@ -12,6 +12,7 @@ import jdk.jfr.Category;
 import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDaoJdbc implements ProductDao {
@@ -83,26 +84,86 @@ public class ProductDaoJdbc implements ProductDao {
 
     @Override
     public void remove(int id) {
+        try(Connection con = dataSource.getConnection()) {
+            String query = "DELETE FROM products" +
+                    "WHERE ID = ?";
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            prepStatement.setInt(1, id);
 
+            prepStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not remove product from database");
+        }
     }
 
     @Override
     public List<Product> getAll() {
-        return null;
+        try(Connection con = dataSource.getConnection()) {
+            String query = "SELECT * FROM products";
+
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            ResultSet rs = prepStatement.executeQuery();
+            if(!rs.next()) {
+                return null;
+            }
+            List<Product> result = new ArrayList<>();
+            while(!rs.next()) {
+                int prodId = rs.getInt(1);
+                result.add(this.find(prodId));
+            }
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all products from database");
+        }
     }
 
     @Override
     public List<Product> getBy(Supplier supplier) {
-        return null;
+        try(Connection con = dataSource.getConnection()) {
+            String query = "SELECT * FROM products" +
+                    "WHERE supplier_ID = ?";
+
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            prepStatement.setInt(1, supplier.getId());
+
+            ResultSet rs = prepStatement.executeQuery();
+            if(!rs.next()) {
+                return null;
+            }
+            List<Product> result = new ArrayList<>();
+            while(!rs.next()) {
+                int prodId = rs.getInt(1);
+                result.add(this.find(prodId));
+            }
+            return result;
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get product by supplier from database");
+        }
     }
 
     @Override
     public List<Product> getBy(ProductCategory productCategory) {
-        return null;
-    }
+        try(Connection con = dataSource.getConnection()) {
+            String query = "SELECT * FROM products" +
+                    "WHERE category_ID = ?";
 
-    @Override
-    public Product getBy(Product product) {
-        return null;
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            prepStatement.setInt(1, productCategory.getId());
+
+            ResultSet rs = prepStatement.executeQuery();
+            if(!rs.next()) {
+                return null;
+            }
+            List<Product> result = new ArrayList<>();
+            while(!rs.next()) {
+                int prodId = rs.getInt(1);
+                result.add(this.find(prodId));
+            }
+            return result;
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get product by supplier from database");
+        }
     }
 }
