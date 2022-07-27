@@ -8,8 +8,7 @@ import java.util.List;
 public interface UserDao {
 
     void add(User user);
-    Supplier find(int id);
+    User find(String email);
     void remove(int id);
 
-    List<Supplier> getAll();
 }

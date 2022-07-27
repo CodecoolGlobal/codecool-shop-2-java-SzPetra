@@ -17,7 +17,7 @@ public class UserDaoMem implements UserDao {
     }
 
     @Override
-    public Supplier find(int id) {
+    public User find(String email) {
         return null;
     }
 
