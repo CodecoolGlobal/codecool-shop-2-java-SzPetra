@@ -32,7 +32,7 @@ public class RegistrationController extends HttpServlet {
         engine.process("product/registration.html", context, response.getWriter());
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String firstName = req.getParameter("f-name");
@@ -44,5 +44,5 @@ public class RegistrationController extends HttpServlet {
         DataSource ds = new PGSimpleDataSource();
         ds.se
         UserService uService = new UserService(new UserDaoJdbc());
-    }
+    }*/
 }
