@@ -13,7 +13,7 @@ public class UserService {
 
     public boolean registerNewUser(User newUser, String password) {
         try {
-            userDao.add(newUser, password);
+            userDao.add(newUser, PasswordEncrypter.getSecurePassword(password));
             return true;
         }catch( RuntimeException e){
             return false;
@@ -21,6 +21,7 @@ public class UserService {
     }
 
     public boolean checkPassword(String userEmail, String password){
-        return false;
+        String hashed_password = userDao.getUserPasswordByEmail(userEmail);
+        return PasswordEncrypter.getSecurePassword(password).equals(hashed_password);
     }
 }
