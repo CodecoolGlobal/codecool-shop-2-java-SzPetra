@@ -24,4 +24,8 @@ public class UserService {
         String hashed_password = userDao.getUserPasswordByEmail(userEmail);
         return PasswordEncrypter.getSecurePassword(password).equals(hashed_password);
     }
+
+    public User getUserByEmail(String user_email){
+        return userDao.find(user_email);
+    }
 }
