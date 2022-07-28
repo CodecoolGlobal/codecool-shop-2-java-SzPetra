@@ -12,12 +12,12 @@ public class UserDaoMem implements UserDao {
     private List<User> users = new ArrayList<>();
 
     @Override
-    public void add(User user) {
+    public void add(User user, String hashPassword) {
         users.add(user);
     }
 
     @Override
-    public Supplier find(int id) {
+    public User find(String email) {
         return null;
     }
 
@@ -27,7 +27,8 @@ public class UserDaoMem implements UserDao {
     }
 
     @Override
-    public List<Supplier> getAll() {
+    public String getUserPasswordByEmail(String email) {
         return null;
     }
 }
+
