@@ -30,6 +30,8 @@
     <script src="/static/js/registration.js" defer ></script>
 </head>
 <body>
+<div th:replace="header.html :: copy"></div>
+
     <div>
         <b>Please fill out the form to log in</b>
          <div>
@@ -43,6 +45,8 @@
                      <b>Password:</b>
                  </label>
                  <input id="password" name="password" required>
+
+                 <button type="submit">LOGIN</button>
              </form>
          </div>
     </div>
