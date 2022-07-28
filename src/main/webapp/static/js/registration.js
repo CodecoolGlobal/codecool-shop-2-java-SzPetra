@@ -1,13 +1,21 @@
 function init() {
-    let submitBtn = document.getElementById("btn");
-    submitBtn.addEventListener("click", registerNewUser);
+    let psw1 = document.getElementById("password");
+    let psw2 = document.getElementById("psw");
+
+    psw1.addEventListener("input", checkIfEqual);
+    psw2.addEventListener("input", checkIfEqual);
 }
 
-function registerNewUser() {
-    let psw1 = document.getElementById("password");
-    console.log(psw1);
-    let psw2 = document.getElementById("psw");
-    console.log(psw2);
+function checkIfEqual(e) {
+    let psw1 = document.getElementById("password").value;
+    let psw2 = document.getElementById("psw").value;
+
+    let submitBtn = document.getElementById("btn");
+    if (psw1 == psw2) {
+        submitBtn.disabled = false;
+    } else {
+        submitBtn.disabled = true;
+    }
 }
 
 init();

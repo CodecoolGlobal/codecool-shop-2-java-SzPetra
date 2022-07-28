@@ -32,7 +32,7 @@
 <body>
     <div th:replace="header.html :: copy"></div>
 
-    <form>
+    <form action="/registration" method="post">
         <div class="reg-container">
             <b id="instruction">
                 Please fill in the forms, to create an account
@@ -66,7 +66,7 @@
                     </label>
                     <input type="password" id="psw" name="psw" required>
 
-                    <button id="btn" type="submit">
+                    <button id="btn" type="submit" disabled>
                         CREATE ACCOUNT
                     </button>
                 </div>
