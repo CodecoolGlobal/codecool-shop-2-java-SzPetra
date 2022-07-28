@@ -5,7 +5,7 @@
 <div th:fragment="copy" class="navbar">
 
         <div class="big-btn cart-container"><a href="/cart"><div class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></div><div>Go to cart</div></a></div>
-        <div class="big-btn checkout-container"><a href="/checkout"><div class="cart-icon"><i class="fa-solid fa-money-bill"></i></div><div>Go to checkout</div></a></div>
+        <div class="big-btn checkout-container"><a th:href="${url}"><div class="cart-icon"><i class="fa-solid fa-money-bill"></i></div><div th:text="${btnText}">Go to checkout</div></a></div>
 
         <div class="category navbar-element">
             <a class="category1" href="/category/?category_id=1"><div class="category-link"><div class="navbar-icon"><i class="fa-solid fa-people-group"></i></div>With Kids</div></a>

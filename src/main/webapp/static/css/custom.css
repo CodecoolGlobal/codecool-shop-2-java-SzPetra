@@ -332,3 +332,11 @@ body {
 .column > img {
     height: 12em;
 }
+#log-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+}
+#log-btn:hover {
+    color: #287e6e;
+}

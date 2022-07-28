@@ -30,49 +30,31 @@
     <script src="/static/js/registration.js" defer ></script>
 </head>
 <body>
-    <div th:replace="header.html :: copy"></div>
+<div th:replace="header.html :: copy"></div>
 
-    <form action="/registration" method="post">
-        <div class="reg-container">
-            <b id="instruction">
-                Please fill in the forms, to create an account
-            </b>
 
-            <div class="reg-form-form-container">
-                <div class="reg-form-container">
 
-                    <label for="f-name">
-                        <b>First name:</b>
-                    </label>
-                    <input type="text" id="f-name" name="f-name" required placeholder="Steve">
 
-                    <label for="l-name">
-                        <b>Last name:</b>
-                    </label>
-                    <input type="text" id="l-name" name="l-name" required placeholder="Harrington">
+             <form method="post" action="/login">
+                 <div class="reg-container">
+                 <div class="reg-form-form-container">
+                 <div class="reg-form-container">
+                 <label for="email">
+                     <b>Email:</b>
+                 </label>
+                 <input type="email" id="email" name="email" required>
 
-                    <label for="email">
-                        <b>Email:</b>
-                    </label>
-                    <input type="email" id="email" name="email" required placeholder="steve@strangerthings.com">
+                 <label for="password">
+                     <b>Password:</b>
+                 </label>
+                 <input type="password" id="password" name="password" required>
 
-                    <label for="password">
-                        <b>Password:</b>
-                    </label>
-                    <input type="password" id="password" name="password" required>
+                 <button type="submit">LOGIN</button>
+             </div>
+             </div>
+             </div>
+             </form>
 
-                    <label for="psw">
-                        <b>Password again:</b>
-                    </label>
-                    <input type="password" id="psw" name="psw" required>
-
-                    <button id="btn" type="submit" disabled>
-                        CREATE ACCOUNT
-                    </button>
-                </div>
-            </div>
-        </div>
-    </form>
 
     <div class="footer" th:replace="footer.html :: copy"></div>
 </body>
