@@ -5,7 +5,11 @@ import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.dao.jdbc.UserDaoJdbc;
+import com.codecool.shop.model.User;
 import com.codecool.shop.service.ProductService;
+import com.codecool.shop.service.UserService;
+import org.postgresql.ds.PGSimpleDataSource;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -14,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/registration"})
@@ -25,5 +30,19 @@ public class RegistrationController extends HttpServlet {
         WebContext context = new WebContext(request, response, request.getServletContext());
 
         engine.process("product/registration.html", context, response.getWriter());
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String firstName = req.getParameter("f-name");
+        String lastName = req.getParameter("l-name");
+        String email = req.getParameter("email");
+        String psw = req.getParameter("password");
+
+        User newUser = new User(firstName, lastName, email);
+        DataSource ds = new PGSimpleDataSource();
+        ds.se
+        UserService uService = new UserService(new UserDaoJdbc());
     }
 }
