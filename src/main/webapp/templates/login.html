@@ -32,10 +32,13 @@
 <body>
 <div th:replace="header.html :: copy"></div>
 
-    <div>
-        <b>Please fill out the form to log in</b>
-         <div>
+
+
+
              <form method="post" action="/login">
+                 <div class="reg-container">
+                 <div class="reg-form-form-container">
+                 <div class="reg-form-container">
                  <label for="email">
                      <b>Email:</b>
                  </label>
@@ -47,9 +50,11 @@
                  <input type="password" id="password" name="password" required>
 
                  <button type="submit">LOGIN</button>
+             </div>
+             </div>
+             </div>
              </form>
-         </div>
-    </div>
+
 
     <div class="footer" th:replace="footer.html :: copy"></div>
 </body>
