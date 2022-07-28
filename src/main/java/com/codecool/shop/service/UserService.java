@@ -11,12 +11,16 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public boolean registerNewUser(User newUser, String hashedPassword) {
+    public boolean registerNewUser(User newUser, String password) {
         try {
-            userDao.add(newUser, hashedPassword);
+            userDao.add(newUser, password);
             return true;
         }catch( RuntimeException e){
             return false;
         }
+    }
+
+    public boolean checkPassword(String userEmail, String password){
+        return false;
     }
 }
