@@ -24,12 +24,16 @@ public class IndexController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("products", productDataStore.getAll());
 
-        if (req.getSession() != null) {
+        if (req.getSession(false) != null) {
             context.setVariable("url", "/checkout");
             context.setVariable("btnText", "CHECKOUT");
+            context.setVariable("logUrl", "/logout");
+            context.setVariable("loginText", "Logout");
         } else {
             context.setVariable("url", "/registration");
             context.setVariable("btnText", "REGISTRATION");
+            context.setVariable("logUrl", "/login");
+            context.setVariable("loginText", "Login");
         }
 
         engine.process("product/index.html", context, resp.getWriter());
