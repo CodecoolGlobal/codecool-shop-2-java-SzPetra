@@ -25,5 +25,10 @@ public class UserDaoMem implements UserDao {
     public void remove(int id) {
 
     }
+
+    @Override
+    public String getUserPasswordByEmail(String email) {
+        return null;
+    }
 }
 

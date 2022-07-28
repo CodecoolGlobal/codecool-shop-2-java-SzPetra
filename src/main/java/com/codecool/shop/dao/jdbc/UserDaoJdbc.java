@@ -61,4 +61,22 @@ public class UserDaoJdbc implements UserDao {
     public void remove(int id) {
 
     }
+
+    @Override
+    public String getUserPasswordByEmail(String email) {
+        try(Connection con = dataSource.getConnection()) {
+            String query = "SELECT password FROM users " +
+                    "WHERE email = ?";
+            PreparedStatement prepStatement = con.prepareStatement(query);
+            prepStatement.setString(1, email);
+
+            ResultSet rs = prepStatement.executeQuery();
+            if(!rs.next()){
+                return null;
+            }
+            return rs.getString(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not find user with given email");
+        }
+    }
 }

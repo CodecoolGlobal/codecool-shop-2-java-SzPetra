@@ -10,5 +10,6 @@ public interface UserDao {
     void add(User user, String hashPassword);
     User find(String email);
     void remove(int id);
+    String getUserPasswordByEmail(String email);
 
 }
