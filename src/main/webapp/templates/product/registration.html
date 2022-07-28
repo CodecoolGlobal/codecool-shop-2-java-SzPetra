@@ -1,10 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Welcome to Registration</title>
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/4e97a990ca.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/registration.css">
+    <script src="/static/js/registration.js" defer ></script>
 </head>
 <body>
+    <div th:replace="header.html :: copy"></div>
+
+    <form>
+        <div class="reg-container">
+            <b id="instruction">
+                Please fill in the forms, to create an account
+            </b>
+
+            <div class="reg-form-form-container">
+                <div class="reg-form-container">
+
+                    <label for="f-name">
+                        <b>First name:</b>
+                    </label>
+                    <input type="text" id="f-name" name="f-name" required placeholder="Steve">
+
+                    <label for="l-name">
+                        <b>Last name:</b>
+                    </label>
+                    <input type="text" id="l-name" name="l-name" required placeholder="Harrington">
+
+                    <label for="email">
+                        <b>Email:</b>
+                    </label>
+                    <input type="email" id="email" name="email" required placeholder="steve@strangerthings.com">
+
+                    <label for="password">
+                        <b>Password:</b>
+                    </label>
+                    <input type="password" id="password" name="password" required>
+
+                    <label for="psw">
+                        <b>Password again:</b>
+                    </label>
+                    <input type="password" id="psw" name="psw" required>
+
+                    <button id="btn" type="submit">
+                        CREATE ACCOUNT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
 
 </body>
 </html>
