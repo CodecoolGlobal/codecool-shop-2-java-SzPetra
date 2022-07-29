@@ -1,5 +1,6 @@
 package com.codecool.shop.controller;
 
+import com.codecool.shop.config.DataSourceFactory;
 import com.codecool.shop.config.TemplateEngineUtil;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
@@ -19,10 +20,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import javax.xml.crypto.Data;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/registration"})
 public class RegistrationController extends HttpServlet {
+
+    private DataSource source = DataSourceFactory.createDataSource();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -41,11 +45,7 @@ public class RegistrationController extends HttpServlet {
         String psw = req.getParameter("password");
 
         User newUser = new User(firstName, lastName, email);
-        PGSimpleDataSource ds = new PGSimpleDataSource();
-        ds.setDatabaseName("codecool_shop");
-        ds.setPassword("sql27petrusblue");
-        ds.setUser("petrus_blue");
-        UserService uService = new UserService(new UserDaoJdbc(ds));
+        UserService uService = new UserService(new UserDaoJdbc(source));
 
         if (uService.registerNewUser(newUser, psw)) {
             resp.sendRedirect("/");
