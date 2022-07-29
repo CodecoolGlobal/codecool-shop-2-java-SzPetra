@@ -38,7 +38,7 @@ public class SupplierDaoJdbc implements SupplierDao {
     @Override
     public Supplier find(int id) {
         try(Connection con = dataSource.getConnection()) {
-            String query = "SELECT * FROM suppliers" +
+            String query = "SELECT * FROM suppliers " +
                     "WHERE id = ?";
             PreparedStatement prepStatement = con.prepareStatement(query);
             prepStatement.setInt(1, id);
@@ -62,7 +62,7 @@ public class SupplierDaoJdbc implements SupplierDao {
     @Override
     public void remove(int id) {
         try(Connection con = dataSource.getConnection()) {
-            String query = "DELETE FROM suppliers" +
+            String query = "DELETE FROM suppliers " +
                     "WHERE id = ?";
             PreparedStatement prepStatement = con.prepareStatement(query);
             prepStatement.setInt(1, id);
